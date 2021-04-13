@@ -1,0 +1,6 @@
+framework module Pods_CS175Project {
+  umbrella header "Pods-CS175Project-umbrella.h"
+
+  export *
+  module * { export * }
+}

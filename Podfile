@@ -5,6 +5,7 @@ target 'CS175Project' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
   # Pods for CS175Project
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'

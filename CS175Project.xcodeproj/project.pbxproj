@@ -18,6 +18,12 @@
 		337EAD732641E66C00B2857C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EAD722641E66C00B2857C /* SplashVC.swift */; };
 		3391D5A8263CFC9E008174D6 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391D5A7263CFC9E008174D6 /* Enum.swift */; };
 		3391D5AD263D00E9008174D6 /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391D5AC263D00E9008174D6 /* TabVC.swift */; };
+		3392D3A826433A7300D845E1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3A726433A7300D845E1 /* LoginVC.swift */; };
+		3392D3AD26433DBC00D845E1 /* SignupEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3AC26433DBC00D845E1 /* SignupEmailVC.swift */; };
+		3392D3B226433DF900D845E1 /* SignupPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3B126433DF900D845E1 /* SignupPasswordVC.swift */; };
+		3392D3B726433E4500D845E1 /* SignupUsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3B626433E4500D845E1 /* SignupUsernameVC.swift */; };
+		3392D3BC2643491C00D845E1 /* ProfileVC+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3BB2643491C00D845E1 /* ProfileVC+Setup.swift */; };
+		3392D3C126434BE300D845E1 /* ProfileVC+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3C026434BE300D845E1 /* ProfileVC+Gestures.swift */; };
 		33FD9BA126263E1500A59045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA026263E1500A59045 /* AppDelegate.swift */; };
 		33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA226263E1500A59045 /* SceneDelegate.swift */; };
 		33FD9BA526263E1500A59045 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA426263E1500A59045 /* ProfileVC.swift */; };
@@ -55,6 +61,12 @@
 		337EAD722641E66C00B2857C /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		3391D5A7263CFC9E008174D6 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		3391D5AC263D00E9008174D6 /* TabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
+		3392D3A726433A7300D845E1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		3392D3AC26433DBC00D845E1 /* SignupEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEmailVC.swift; sourceTree = "<group>"; };
+		3392D3B126433DF900D845E1 /* SignupPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPasswordVC.swift; sourceTree = "<group>"; };
+		3392D3B626433E4500D845E1 /* SignupUsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupUsernameVC.swift; sourceTree = "<group>"; };
+		3392D3BB2643491C00D845E1 /* ProfileVC+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+Setup.swift"; sourceTree = "<group>"; };
+		3392D3C026434BE300D845E1 /* ProfileVC+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+Gestures.swift"; sourceTree = "<group>"; };
 		33FD9B9D26263E1500A59045 /* CS175Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS175Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FD9BA026263E1500A59045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33FD9BA226263E1500A59045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,9 +119,15 @@
 			isa = PBXGroup;
 			children = (
 				33FD9BA426263E1500A59045 /* ProfileVC.swift */,
+				3392D3BB2643491C00D845E1 /* ProfileVC+Setup.swift */,
+				3392D3C026434BE300D845E1 /* ProfileVC+Gestures.swift */,
 				337EAD492641DE8B00B2857C /* ExploreVC.swift */,
 				3391D5AC263D00E9008174D6 /* TabVC.swift */,
 				337EAD722641E66C00B2857C /* SplashVC.swift */,
+				3392D3A726433A7300D845E1 /* LoginVC.swift */,
+				3392D3AC26433DBC00D845E1 /* SignupEmailVC.swift */,
+				3392D3B126433DF900D845E1 /* SignupPasswordVC.swift */,
+				3392D3B626433E4500D845E1 /* SignupUsernameVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -448,14 +466,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3392D3C126434BE300D845E1 /* ProfileVC+Gestures.swift in Sources */,
 				3391D5AD263D00E9008174D6 /* TabVC.swift in Sources */,
 				33FD9BA526263E1500A59045 /* ProfileVC.swift in Sources */,
+				3392D3AD26433DBC00D845E1 /* SignupEmailVC.swift in Sources */,
+				3392D3B226433DF900D845E1 /* SignupPasswordVC.swift in Sources */,
 				330364C8262645BC003E1121 /* Funcs.swift in Sources */,
 				337EAD4F2641E12C00B2857C /* Extensions.swift in Sources */,
+				3392D3A826433A7300D845E1 /* LoginVC.swift in Sources */,
 				337EAD4A2641DE8B00B2857C /* ExploreVC.swift in Sources */,
+				3392D3BC2643491C00D845E1 /* ProfileVC+Setup.swift in Sources */,
 				33FD9BA126263E1500A59045 /* AppDelegate.swift in Sources */,
 				3391D5A8263CFC9E008174D6 /* Enum.swift in Sources */,
 				33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */,
+				3392D3B726433E4500D845E1 /* SignupUsernameVC.swift in Sources */,
 				337EAD732641E66C00B2857C /* SplashVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

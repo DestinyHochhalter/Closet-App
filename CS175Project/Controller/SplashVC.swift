@@ -16,7 +16,7 @@ class SplashVC: UIViewController {
     func setup() {
         
         // if user is logged in
-     //   if Auth.auth().currentUser != nil {
+        if Auth.auth().currentUser != nil {
             // User is signed in.
             let tabbar = TabVC()
             let navigationController = UINavigationController(rootViewController: tabbar)
@@ -24,17 +24,15 @@ class SplashVC: UIViewController {
             navigationController.navigationBar.isHidden = true // hide top bar
             // present tab bar that is embedded in navigation controller
             self.present(navigationController, animated: false, completion: nil)
-      //  } else {
-            // No user is signed in.
-            // if user is not loggin in
+        } else {
+             // user in not signed in
             // present AuthVC to login or signup
-            // else do nothing
-//            let vc = AuthVC()
-//            vc.modalPresentationStyle = .overFullScreen
-//            vc.navigationItem.hidesBackButton = false
-//            vc.hidesBottomBarWhenPushed = true
-//            self.present(vc, animated: false)
-      //  }
+            let vc = AuthVC()
+            vc.modalPresentationStyle = .overFullScreen
+            vc.navigationItem.hidesBackButton = false
+            vc.hidesBottomBarWhenPushed = true
+            self.present(vc, animated: false)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +51,7 @@ class SplashVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red //Color.bg
+        self.view.backgroundColor = Color.bg
         
         PAUSE(duration: 0.5) {
             self.setup()

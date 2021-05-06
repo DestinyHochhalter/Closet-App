@@ -27,26 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Database.database().isPersistenceEnabled = true
         let user = Auth.auth().currentUser
 
-        
-        
-      //  window = UIWindow(frame: UIScreen.main.bounds)
-//
-//        if let tabBarController = self.window!.rootViewController as? UITabBarController {
-//            tabBarController.selectedIndex = 0
-////        }
-        
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        let vc = ProfileVC()
-//        self.window?.rootViewController = UINavigationController(rootViewController: vc)
-       
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.rootViewController = SplashVC() // make splash screen root view
-//       // self.window = window
-//        window?.makeKeyAndVisible()
-        
-//        if let tabBarController = self.window!.rootViewController as? UITabBarController {
-//            tabBarController.selectedIndex = 0
-//        }
 //
         window = UIWindow()
         let nav = UINavigationController()

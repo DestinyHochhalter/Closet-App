@@ -79,13 +79,13 @@ class TabVC: UITabBarController {
     
     
     func setupIcons() {
-        let exploreVC = UINavigationController(rootViewController: ProfileVC())
+        let exploreVC = UINavigationController(rootViewController: ExploreVC())
         exploreVC.navigationBar.isHidden = true
         exploreVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named:"explore"), tag: 0)
         exploreVC.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -10, right: 0)
 
         
-        let profileVC = UINavigationController(rootViewController: ExploreVC())
+        let profileVC = UINavigationController(rootViewController: ProfileVC())
         profileVC.navigationBar.isHidden = true
         profileVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named:"profile"), tag: 1)
         profileVC.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -10, right: 0)

@@ -26,35 +26,6 @@
 ////        }
 //        
 //     //   guard let _ = (scene as? UIWindowScene) else { return }
-//        
-//    
-////                if let windowScene = scene as? UIWindowScene {
-////                    window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-////                    window?.windowScene = windowScene
-////                    window?.rootViewController = SplashVC()
-////                    window?.makeKeyAndVisible()
-////                }
-//        
-////        if let windowScene = scene as? UIWindowScene {
-////            window?.rootViewController = SplashVC()
-////               
-////            window?.makeKeyAndVisible()
-////            }
-//        
-////        if let windowScene = scene as? UIWindowScene {
-////            let window = UIWindow(windowScene: windowScene)
-////            window.rootViewController = SplashVC() // make splash screen root view
-////            self.window = window
-////            window.makeKeyAndVisible()
-////        }
-//        
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//            
-//            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//            window?.windowScene = windowScene
-//            window?.makeKeyAndVisible()
-//            let vc = SplashVC()
-//            window?.rootViewController = vc
 //    }
 //
 //    func sceneDidDisconnect(_ scene: UIScene) {

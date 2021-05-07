@@ -182,6 +182,7 @@ final class AuthVC: UIViewController {
     
     @objc func loginTapped() {
         print("log in")
+        addHapticFeedback(style: .light)
         login()
 //        let tabbar = TabVC()
 //        let navigationController = UINavigationController(rootViewController: tabbar)
@@ -195,11 +196,15 @@ final class AuthVC: UIViewController {
     @objc func signupTapped() {
         // segue to sign-up page
         print("sign up")
+        addHapticFeedback(style: .light)
         let vc = SignupEmailVC()
         vc.modalPresentationStyle = .overFullScreen
         vc.navigationItem.hidesBackButton = false
         vc.hidesBottomBarWhenPushed = true
         self.present(vc, animated: false)
+        
+        // FIXME: support error message for invalid password
+        // offer 'reset password' option via Firebase Auth
     }
     
     @objc func backImgVwTapped() {
@@ -280,11 +285,11 @@ final class AuthVC: UIViewController {
 extension AuthVC: UITextFieldDelegate {
     
     @objc func emailTextFieldDidChange() {
-        print(emailTextField.text)
+       // print(emailTextField.text)
     }
     
     @objc func passwordTextFieldDidChange() {
-        print(passwordTextField.text)
+        //print(passwordTextField.text)
     }
 }
 

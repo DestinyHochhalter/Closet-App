@@ -126,12 +126,16 @@ final class SignupEmailVC: UIViewController {
     
     @objc func nextTapped() {
         print("next tapped")
+        addHapticFeedback(style: .light)
+        // FIXME: make sure email is valid, else display error message
+        if emailTextField.text != "" {
         let vc = SignupPasswordVC()
         vc.modalPresentationStyle = .overFullScreen
         vc.navigationItem.hidesBackButton = false
         vc.hidesBottomBarWhenPushed = true
         vc.email = self.email
         self.present(vc, animated: false)
+        }
     }
     
     @objc func backImgVwTapped() {
@@ -172,7 +176,7 @@ final class SignupEmailVC: UIViewController {
 extension SignupEmailVC: UITextFieldDelegate {
     
     @objc func emailTextFieldDidChange() {
-        print(emailTextField.text)
+        //print(emailTextField.text)
         self.email = emailTextField.text
     }
 }

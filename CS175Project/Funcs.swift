@@ -96,3 +96,16 @@ extension UIView {
     
 }
 
+
+
+// adds padding space for X devices, otherwise return original value
+
+func addPaddingForNotch(_ val: CGFloat) -> CGFloat {
+    switch  UIScreen.main.bounds.size {
+    case iPhoneSizes.X_XS.Size, iPhoneSizes.XS_XR_MAX.Size:
+        return val + iPhoneSizes.X_XS.StatusBar
+    default:
+        return val
+    }
+}
+

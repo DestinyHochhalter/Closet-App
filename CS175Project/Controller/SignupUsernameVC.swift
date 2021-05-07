@@ -131,7 +131,10 @@ final class SignupUsernameVC: UIViewController {
     
     @objc func doneTapped() {
         print("next tapped")
+        addHapticFeedback(style: .light)
+        if usernameTextField.text != "" {
         createAccount()
+        }
     }
     
     @objc func backImgVwTapped() {
@@ -211,7 +214,7 @@ final class SignupUsernameVC: UIViewController {
 extension SignupUsernameVC: UITextFieldDelegate {
     
     @objc func passwordTextFieldDidChange() {
-        print(usernameTextField.text)
+        //print(usernameTextField.text)
         self.username = usernameTextField.text
     }
 }

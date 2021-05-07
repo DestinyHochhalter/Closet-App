@@ -127,6 +127,8 @@ final class SignupPasswordVC: UIViewController {
     
     @objc func nextTapped() {
         print("next tapped")
+        addHapticFeedback(style: .light)
+        if passwordTextField.text != "" {
         let vc = SignupUsernameVC()
         vc.modalPresentationStyle = .overFullScreen
         vc.navigationItem.hidesBackButton = false
@@ -134,6 +136,7 @@ final class SignupPasswordVC: UIViewController {
         vc.email = self.email
         vc.password = self.password
         self.present(vc, animated: false)
+        }
         
     }
     
@@ -175,7 +178,7 @@ final class SignupPasswordVC: UIViewController {
 extension SignupPasswordVC: UITextFieldDelegate {
     
     @objc func passwordTextFieldDidChange() {
-        print(passwordTextField.text)
+       // print(passwordTextField.text)
         self.password = passwordTextField.text
     }
 }

@@ -13,7 +13,7 @@ enum Color {
     static let bg = UIColor(hexString: "#FCFCF9")!
     static let darkText = UIColor(hexString: "#212934")!
     static let mediumText = UIColor(hexString: "#212934")!.withAlphaComponent(0.85)
-    static let seperator = UIColor(hexString: "#F4F4F1")!
+    static let separator = UIColor(hexString: "#F4F4F1")!
     static let lightText = UIColor(hexString: "#C5C7C8")!
 }
 
@@ -27,37 +27,27 @@ var currentVC: VC = .profile
 
 
 enum Padding {
+    // Padding for entire app - keep layout consistent
     static let leading: CGFloat = 16
     static let traling: CGFloat = 16
     static let zero: CGFloat = 0
     static let top: CGFloat = 50
     
-    // profile image
-    static let profileImgSz: CGFloat = 50
-    
-    static let profileVwHeight: CGFloat = 40
-    
-    // search, add, more icons
-    static let iconSz: CGFloat = 60
-    
-    // closet and collections icons
-    static let mediumIconSz: CGFloat = 28
-    
+    // selection line for segmented control
     static let selectionLineWidth: CGFloat = 70
     static let selectionLineHeight: CGFloat = 2
     
-    static let seperatorHeight: CGFloat = 1.5
+    static let separatorHeight: CGFloat = 1.5
     
     static let iconSpacing: CGFloat = 40
     
-    static let seperatorSpacing: CGFloat = 6//10
+    static let separatorSpacing: CGFloat = 6//10
     
     static let followVwHeight: CGFloat = 60
     
     static let followSpacing: CGFloat = 0
     
-    
-    
+
 }
 
 
@@ -95,5 +85,57 @@ func isIphoneX() -> Bool {
         return true
     default:
         return false
+    }
+}
+
+
+enum FilterOptionType: String {
+    
+    case recent = "Recent"
+    case tops = "Tops"
+    case bottoms = "Bottoms"
+    case accessories = "Accessories"
+    case outwear = "Outwear"
+    case footwear = "Footwear"
+    
+}
+
+
+class FilterOption {
+    var type: FilterOptionType = .recent
+    var order: Int = 0
+    var isSelected: Bool = false
+    
+    init(type: FilterOptionType = .recent, order: Int = 0, isSelected: Bool = false) {
+        self.type = type
+        self.order = order
+        self.isSelected = isSelected
+    }
+}
+
+// define functions for arrays of type FilterOption
+extension Array where Element == FilterOption {
+    
+    // make given type selected
+    // unselect all other types
+    func setSelected(type: FilterOptionType) {
+        for x in self {
+            if x.type == type {
+                x.isSelected = true
+            } else {
+                x.isSelected = false
+            }
+        }
+    }
+
+    
+    // unselected is the data set to populate table view (only show unselected)
+    // selected will be used for top label (selected option)
+    func getSelectedAndUnselectedOptions() -> (unselected: [FilterOption], selected: FilterOption?) {
+        
+        let unselectedOptions = self.filter{$0.isSelected == false}.compactMap{$0}
+        let selectedOption = self.filter{$0.isSelected == true}.first ?? nil
+        
+        return (unselectedOptions, selectedOption)
     }
 }

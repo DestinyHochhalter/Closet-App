@@ -11,6 +11,10 @@ import FirebaseAuth
 
 extension ProfileVC {
     
+    @objc func selectedFilterOptionVwTapped() {
+        toggleFilterTable()
+    }
+    
     @objc func moreTapped() {
         // Show settings
         // option to log out
@@ -21,7 +25,14 @@ extension ProfileVC {
         // animate constraint to move under closet icone
         let mid: CGFloat = UIScreen.main.bounds.width / 2
         let selectionLineLeading = (mid - Padding.selectionLineWidth) / 2
-        selectionLineLeadingCon?.constant = selectionLineLeading
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveLinear) {
+            self.selectionLineLeadingCon?.constant = selectionLineLeading
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            //
+        }
+
+        
         // change color to reflect selected item
         collectionsIconImgVw.tintColor = Color.lightText
         closetIconImgVw.tintColor = Color.mediumText
@@ -31,7 +42,13 @@ extension ProfileVC {
         // move constaint to collections icon
         let mid: CGFloat = UIScreen.main.bounds.width / 2
         let selectionLineLeading = ((mid - Padding.selectionLineWidth) / 2) + mid
-        selectionLineLeadingCon?.constant = selectionLineLeading
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveLinear) {
+            self.selectionLineLeadingCon?.constant = selectionLineLeading
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            //
+        }
+        //selectionLineLeadingCon?.constant = selectionLineLeading
         // change colors of icons
         closetIconImgVw.tintColor = Color.lightText
         collectionsIconImgVw.tintColor = Color.mediumText
@@ -74,6 +91,9 @@ extension ProfileVC {
         
         let collectionsTap = UITapGestureRecognizer(target: self, action: #selector(collectionsTapped))
         collectionsVw.addGestureRecognizer(collectionsTap)
+        
+        let selectedFilterOptionVwTap = UITapGestureRecognizer(target: self, action: #selector(selectedFilterOptionVwTapped))
+        selectedFilterOptionVw.addGestureRecognizer(selectedFilterOptionVwTap)
         
     }
 }

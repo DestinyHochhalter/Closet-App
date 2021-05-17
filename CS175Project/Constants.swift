@@ -41,13 +41,15 @@ enum Constants {
         }
         
         enum GridCollection {
-            static let gridCollectionHeight = UIScreen.main.bounds.height - (Constants.Sizes.Height.topHeight + Constants.Sizes.FilterOption.OptionHeight) + 1000
+            static let gridCollectionHeight = UIScreen.main.bounds.height - (Constants.Sizes.Height.topHeight + Constants.Sizes.FilterOption.OptionHeight)
         }
         
         enum ClothingCollectionCell {
             static let padding: CGFloat = 5
             static let spacing: CGFloat = 10
-            static let height: CGFloat = ((Constants.Sizes.FilterOption.OptionHeight + Constants.Sizes.GridCollection.gridCollectionHeight) - (Constants.Sizes.ClothingCollectionCell.spacing*4)) / 3
+            static let topSpace: CGFloat = 35
+            static let iconSize: CGFloat = 30
+            static let height: CGFloat = ((Constants.Sizes.GridCollection.gridCollectionHeight - (Constants.Sizes.ClothingCollectionCell.spacing*4)) / 3) + 10
         }
     }
     enum Images {

@@ -37,6 +37,7 @@ extension ProfileVC {
             // show table view and collection view for closet tab
             self.selectedFilterOptionVw.isHidden = false
             self.gridCollectionVw.isHidden = false
+            self.clothingCollectionsTable.isHidden = true
         }
       //  self.filterTable.isHidden = false
     }
@@ -56,6 +57,7 @@ extension ProfileVC {
             // hide table view and collection view for closet tab
             self.selectedFilterOptionVw.isHidden = true
             self.gridCollectionVw.isHidden = true
+            self.clothingCollectionsTable.isHidden = false
        //     self.filterTable.isHidden = true
         }
 

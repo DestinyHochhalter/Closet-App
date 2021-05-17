@@ -320,6 +320,18 @@ class ProfileVC: UIViewController {
     var clothingArr: [ClothingItem] = [ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]),ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"])]
     
     
+    // MARK: - Clothing Collections
+    let clothingCollectionsTable: UITableView = {
+        let vw = UITableView()
+        vw.allowsSelection = false
+        vw.separatorStyle = .none
+        vw.backgroundColor = Color.bg
+        vw.isHidden = true
+        return vw
+    }()
+    
+    var collections: [ClothingCollection] = []
+
     
     // if viewing own profile, do not show 'follow'/'following' box
     // else show following status when viewing other profiles
@@ -336,6 +348,7 @@ class ProfileVC: UIViewController {
         addLayout()
         setupFilterTable()
         setupGridCollection()
+        setupClothingCollectionsTable()
     }
     
     func setupFilterTable() {
@@ -353,6 +366,14 @@ class ProfileVC: UIViewController {
         gridCollectionVw.delegate = self
         gridCollectionVw.dataSource = self
         gridCollectionVw.reloadData()
+    }
+    
+    func setupClothingCollectionsTable() {
+        clothingCollectionsTable.register(ClothingCollectionsCell.self,forCellReuseIdentifier: ClothingCollectionsCell.id)
+        clothingCollectionsTable.delegate = self
+        clothingCollectionsTable.dataSource = self
+        collections.append(ClothingCollection(name: "Favorites", items: clothingArr, timestamp: 0.0))
+        clothingCollectionsTable.reloadData()
     }
 
 }

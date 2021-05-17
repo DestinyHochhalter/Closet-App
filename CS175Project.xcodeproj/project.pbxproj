@@ -31,7 +31,7 @@
 		3392D3D72644F17600D845E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3D62644F17600D845E1 /* Constants.swift */; };
 		3392D3DC26452E5400D845E1 /* ClothingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3DB26452E5400D845E1 /* ClothingItemCell.swift */; };
 		3392D3E126452FB800D845E1 /* ClothingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3E026452FB800D845E1 /* ClothingItem.swift */; };
-		33C38AAA2651BF9000893ACB /* ClothingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38AA92651BF9000893ACB /* ClothingCollectionCell.swift */; };
+		33C38AAA2651BF9000893ACB /* ClothingCollectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38AA92651BF9000893ACB /* ClothingCollectionsCell.swift */; };
 		33C38ACF2651F42300893ACB /* ClothingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38ACE2651F42300893ACB /* ClothingCollection.swift */; };
 		33FD9BA126263E1500A59045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA026263E1500A59045 /* AppDelegate.swift */; };
 		33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA226263E1500A59045 /* SceneDelegate.swift */; };
@@ -83,7 +83,7 @@
 		3392D3D62644F17600D845E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3392D3DB26452E5400D845E1 /* ClothingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingItemCell.swift; sourceTree = "<group>"; };
 		3392D3E026452FB800D845E1 /* ClothingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingItem.swift; sourceTree = "<group>"; };
-		33C38AA92651BF9000893ACB /* ClothingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingCollectionCell.swift; sourceTree = "<group>"; };
+		33C38AA92651BF9000893ACB /* ClothingCollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingCollectionsCell.swift; sourceTree = "<group>"; };
 		33C38ACE2651F42300893ACB /* ClothingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingCollection.swift; sourceTree = "<group>"; };
 		33FD9B9D26263E1500A59045 /* CS175Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS175Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FD9BA026263E1500A59045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,7 +157,6 @@
 			children = (
 				3392D3C82644E78000D845E1 /* Cell */,
 				335B56242647B4D2009CFF9E /* VerticalCollectionView.swift */,
-				33C38AA92651BF9000893ACB /* ClothingCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +188,7 @@
 			children = (
 				3392D3C92644E79200D845E1 /* FilterOptionCell.swift */,
 				3392D3DB26452E5400D845E1 /* ClothingItemCell.swift */,
+				33C38AA92651BF9000893ACB /* ClothingCollectionsCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -506,7 +506,7 @@
 				3391D5AD263D00E9008174D6 /* TabVC.swift in Sources */,
 				33FD9BA526263E1500A59045 /* ProfileVC.swift in Sources */,
 				3392D3AD26433DBC00D845E1 /* SignupEmailVC.swift in Sources */,
-				33C38AAA2651BF9000893ACB /* ClothingCollectionCell.swift in Sources */,
+				33C38AAA2651BF9000893ACB /* ClothingCollectionsCell.swift in Sources */,
 				3392D3B226433DF900D845E1 /* SignupPasswordVC.swift in Sources */,
 				33C38ACF2651F42300893ACB /* ClothingCollection.swift in Sources */,
 				335B562026473DF0009CFF9E /* ProfileVC+CollectionVw.swift in Sources */,

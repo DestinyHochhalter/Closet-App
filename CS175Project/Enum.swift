@@ -15,6 +15,7 @@ enum Color {
     static let mediumText = UIColor(hexString: "#212934")!.withAlphaComponent(0.85)
     static let separator = UIColor(hexString: "#F4F4F1")!
     static let lightText = UIColor(hexString: "#C5C7C8")!
+    static let collectionsBg = UIColor(hexString: "#F7F7F7")!
 }
 
 enum VC: String {

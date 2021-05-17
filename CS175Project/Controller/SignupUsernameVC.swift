@@ -54,7 +54,7 @@ final class SignupUsernameVC: UIViewController {
     
     let seperatorView: UIView = {
         let vw = UIView()
-        vw.backgroundColor = Color.seperator
+        vw.backgroundColor = Color.separator
         vw.isHidden = false
         return vw
     }()

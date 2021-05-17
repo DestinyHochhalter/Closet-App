@@ -11,6 +11,10 @@ import FirebaseAuth
 
 extension ProfileVC {
     
+    @objc func selectedFilterOptionVwTapped() {
+        toggleFilterTable()
+    }
+    
     @objc func moreTapped() {
         // Show settings
         // option to log out
@@ -21,20 +25,39 @@ extension ProfileVC {
         // animate constraint to move under closet icone
         let mid: CGFloat = UIScreen.main.bounds.width / 2
         let selectionLineLeading = (mid - Padding.selectionLineWidth) / 2
-        selectionLineLeadingCon?.constant = selectionLineLeading
-        // change color to reflect selected item
-        collectionsIconImgVw.tintColor = Color.lightText
-        closetIconImgVw.tintColor = Color.mediumText
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveLinear) {
+            self.selectionLineLeadingCon?.constant = selectionLineLeading
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            // change color to reflect selected item
+            self.collectionsIconImgVw.tintColor = Color.lightText
+            self.closetIconImgVw.tintColor = Color.mediumText
+            
+            
+            // show table view and collection view for closet tab
+            self.selectedFilterOptionVw.isHidden = false
+            self.gridCollectionVw.isHidden = false
+        }
+      //  self.filterTable.isHidden = false
     }
     
     @objc func collectionsTapped() {
         // move constaint to collections icon
         let mid: CGFloat = UIScreen.main.bounds.width / 2
         let selectionLineLeading = ((mid - Padding.selectionLineWidth) / 2) + mid
-        selectionLineLeadingCon?.constant = selectionLineLeading
-        // change colors of icons
-        closetIconImgVw.tintColor = Color.lightText
-        collectionsIconImgVw.tintColor = Color.mediumText
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveLinear) {
+            self.selectionLineLeadingCon?.constant = selectionLineLeading
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            // change colors of icons
+            self.closetIconImgVw.tintColor = Color.lightText
+            self.collectionsIconImgVw.tintColor = Color.mediumText
+            
+            // hide table view and collection view for closet tab
+            self.selectedFilterOptionVw.isHidden = true
+            self.gridCollectionVw.isHidden = true
+       //     self.filterTable.isHidden = true
+        }
 
     }
     
@@ -74,6 +97,9 @@ extension ProfileVC {
         
         let collectionsTap = UITapGestureRecognizer(target: self, action: #selector(collectionsTapped))
         collectionsVw.addGestureRecognizer(collectionsTap)
+        
+        let selectedFilterOptionVwTap = UITapGestureRecognizer(target: self, action: #selector(selectedFilterOptionVwTapped))
+        selectedFilterOptionVw.addGestureRecognizer(selectedFilterOptionVwTap)
         
     }
 }

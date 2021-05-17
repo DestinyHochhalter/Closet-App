@@ -60,14 +60,14 @@ final class AuthVC: UIViewController {
     
     let seperatorView1: UIView = {
         let vw = UIView()
-        vw.backgroundColor = Color.seperator
+        vw.backgroundColor = Color.separator
         vw.isHidden = false
         return vw
     }()
     
     let seperatorView2: UIView = {
         let vw = UIView()
-        vw.backgroundColor = Color.seperator
+        vw.backgroundColor = Color.separator
         return vw
     }()
     

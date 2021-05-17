@@ -13,6 +13,8 @@
 		330364D026264749003E1121 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 330364CF26264748003E1121 /* GoogleService-Info.plist */; };
 		330364D126264749003E1121 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 330364CF26264748003E1121 /* GoogleService-Info.plist */; };
 		330364D226264749003E1121 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 330364CF26264748003E1121 /* GoogleService-Info.plist */; };
+		335B562026473DF0009CFF9E /* ProfileVC+CollectionVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B561F26473DF0009CFF9E /* ProfileVC+CollectionVw.swift */; };
+		335B56252647B4D2009CFF9E /* VerticalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B56242647B4D2009CFF9E /* VerticalCollectionView.swift */; };
 		337EAD4A2641DE8B00B2857C /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EAD492641DE8B00B2857C /* ExploreVC.swift */; };
 		337EAD4F2641E12C00B2857C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EAD4E2641E12C00B2857C /* Extensions.swift */; };
 		337EAD732641E66C00B2857C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EAD722641E66C00B2857C /* SplashVC.swift */; };
@@ -24,6 +26,13 @@
 		3392D3B726433E4500D845E1 /* SignupUsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3B626433E4500D845E1 /* SignupUsernameVC.swift */; };
 		3392D3BC2643491C00D845E1 /* ProfileVC+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3BB2643491C00D845E1 /* ProfileVC+Setup.swift */; };
 		3392D3C126434BE300D845E1 /* ProfileVC+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3C026434BE300D845E1 /* ProfileVC+Gestures.swift */; };
+		3392D3CA2644E79200D845E1 /* FilterOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3C92644E79200D845E1 /* FilterOptionCell.swift */; };
+		3392D3D22644F12C00D845E1 /* ProfileVC+Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3D12644F12C00D845E1 /* ProfileVC+Table.swift */; };
+		3392D3D72644F17600D845E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3D62644F17600D845E1 /* Constants.swift */; };
+		3392D3DC26452E5400D845E1 /* ClothingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3DB26452E5400D845E1 /* ClothingItemCell.swift */; };
+		3392D3E126452FB800D845E1 /* ClothingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3E026452FB800D845E1 /* ClothingItem.swift */; };
+		33C38AAA2651BF9000893ACB /* ClothingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38AA92651BF9000893ACB /* ClothingCollectionCell.swift */; };
+		33C38ACF2651F42300893ACB /* ClothingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38ACE2651F42300893ACB /* ClothingCollection.swift */; };
 		33FD9BA126263E1500A59045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA026263E1500A59045 /* AppDelegate.swift */; };
 		33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA226263E1500A59045 /* SceneDelegate.swift */; };
 		33FD9BA526263E1500A59045 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA426263E1500A59045 /* ProfileVC.swift */; };
@@ -56,6 +65,8 @@
 		3079AD6AC634E56F07EE7788 /* Pods-CS175Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS175Project.debug.xcconfig"; path = "Target Support Files/Pods-CS175Project/Pods-CS175Project.debug.xcconfig"; sourceTree = "<group>"; };
 		330364C7262645BC003E1121 /* Funcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funcs.swift; sourceTree = "<group>"; };
 		330364CF26264748003E1121 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		335B561F26473DF0009CFF9E /* ProfileVC+CollectionVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+CollectionVw.swift"; sourceTree = "<group>"; };
+		335B56242647B4D2009CFF9E /* VerticalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCollectionView.swift; sourceTree = "<group>"; };
 		337EAD492641DE8B00B2857C /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		337EAD4E2641E12C00B2857C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		337EAD722641E66C00B2857C /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
@@ -67,6 +78,13 @@
 		3392D3B626433E4500D845E1 /* SignupUsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupUsernameVC.swift; sourceTree = "<group>"; };
 		3392D3BB2643491C00D845E1 /* ProfileVC+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+Setup.swift"; sourceTree = "<group>"; };
 		3392D3C026434BE300D845E1 /* ProfileVC+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+Gestures.swift"; sourceTree = "<group>"; };
+		3392D3C92644E79200D845E1 /* FilterOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionCell.swift; sourceTree = "<group>"; };
+		3392D3D12644F12C00D845E1 /* ProfileVC+Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+Table.swift"; sourceTree = "<group>"; };
+		3392D3D62644F17600D845E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3392D3DB26452E5400D845E1 /* ClothingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingItemCell.swift; sourceTree = "<group>"; };
+		3392D3E026452FB800D845E1 /* ClothingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingItem.swift; sourceTree = "<group>"; };
+		33C38AA92651BF9000893ACB /* ClothingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingCollectionCell.swift; sourceTree = "<group>"; };
+		33C38ACE2651F42300893ACB /* ClothingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingCollection.swift; sourceTree = "<group>"; };
 		33FD9B9D26263E1500A59045 /* CS175Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS175Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FD9BA026263E1500A59045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33FD9BA226263E1500A59045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +138,8 @@
 			children = (
 				33FD9BA426263E1500A59045 /* ProfileVC.swift */,
 				3392D3BB2643491C00D845E1 /* ProfileVC+Setup.swift */,
+				3392D3D12644F12C00D845E1 /* ProfileVC+Table.swift */,
+				335B561F26473DF0009CFF9E /* ProfileVC+CollectionVw.swift */,
 				3392D3C026434BE300D845E1 /* ProfileVC+Gestures.swift */,
 				337EAD492641DE8B00B2857C /* ExploreVC.swift */,
 				3391D5AC263D00E9008174D6 /* TabVC.swift */,
@@ -135,6 +155,9 @@
 		330364C526264591003E1121 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3392D3C82644E78000D845E1 /* Cell */,
+				335B56242647B4D2009CFF9E /* VerticalCollectionView.swift */,
+				33C38AA92651BF9000893ACB /* ClothingCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,6 +165,8 @@
 		330364C626264596003E1121 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3392D3E026452FB800D845E1 /* ClothingItem.swift */,
+				33C38ACE2651F42300893ACB /* ClothingCollection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +182,15 @@
 				1DACB95A04CC8240855B34DB /* Pods-CS175ProjectTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3392D3C82644E78000D845E1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3392D3C92644E79200D845E1 /* FilterOptionCell.swift */,
+				3392D3DB26452E5400D845E1 /* ClothingItemCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		33FD9B9426263E1500A59045 = {
@@ -186,6 +220,7 @@
 			children = (
 				33FD9BA026263E1500A59045 /* AppDelegate.swift */,
 				33FD9BA226263E1500A59045 /* SceneDelegate.swift */,
+				3392D3D62644F17600D845E1 /* Constants.swift */,
 				330364C7262645BC003E1121 /* Funcs.swift */,
 				3391D5A7263CFC9E008174D6 /* Enum.swift */,
 				337EAD4E2641E12C00B2857C /* Extensions.swift */,
@@ -466,13 +501,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3392D3CA2644E79200D845E1 /* FilterOptionCell.swift in Sources */,
 				3392D3C126434BE300D845E1 /* ProfileVC+Gestures.swift in Sources */,
 				3391D5AD263D00E9008174D6 /* TabVC.swift in Sources */,
 				33FD9BA526263E1500A59045 /* ProfileVC.swift in Sources */,
 				3392D3AD26433DBC00D845E1 /* SignupEmailVC.swift in Sources */,
+				33C38AAA2651BF9000893ACB /* ClothingCollectionCell.swift in Sources */,
 				3392D3B226433DF900D845E1 /* SignupPasswordVC.swift in Sources */,
+				33C38ACF2651F42300893ACB /* ClothingCollection.swift in Sources */,
+				335B562026473DF0009CFF9E /* ProfileVC+CollectionVw.swift in Sources */,
 				330364C8262645BC003E1121 /* Funcs.swift in Sources */,
+				3392D3D22644F12C00D845E1 /* ProfileVC+Table.swift in Sources */,
 				337EAD4F2641E12C00B2857C /* Extensions.swift in Sources */,
+				335B56252647B4D2009CFF9E /* VerticalCollectionView.swift in Sources */,
 				3392D3A826433A7300D845E1 /* LoginVC.swift in Sources */,
 				337EAD4A2641DE8B00B2857C /* ExploreVC.swift in Sources */,
 				3392D3BC2643491C00D845E1 /* ProfileVC+Setup.swift in Sources */,
@@ -481,6 +522,9 @@
 				33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */,
 				3392D3B726433E4500D845E1 /* SignupUsernameVC.swift in Sources */,
 				337EAD732641E66C00B2857C /* SplashVC.swift in Sources */,
+				3392D3E126452FB800D845E1 /* ClothingItem.swift in Sources */,
+				3392D3DC26452E5400D845E1 /* ClothingItemCell.swift in Sources */,
+				3392D3D72644F17600D845E1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

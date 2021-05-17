@@ -13,6 +13,7 @@ extension ProfileVC {
     func addLayout() {
         
         addFilterTable()
+        addGridCollection()
         
         
         // MARK: - Header View
@@ -120,6 +121,14 @@ extension ProfileVC {
         
         hideFilterTable()
         
+    }
+    
+    private func addGridCollection() {
+        
+        gridCollectionVw.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor, Padding.zero), trailing: (self.view.trailingAnchor, -Padding.zero), bottom: (self.view.bottomAnchor, Padding.zero))
+        gridCollectionTopCon = NSLayoutConstraint(item: gridCollectionVw, attribute: .top, relatedBy: .equal, toItem: selectedFilterOptionVw, attribute: .bottom, multiplier: 1.0, constant: 0)
+        gridCollectionTopCon?.isActive = true
+      //  gridCollectionTopCon?.constant = Constants.Sizes.GridCollection.gridCollectionHeight
     }
     
     func setLabels() {

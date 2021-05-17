@@ -298,6 +298,26 @@ class ProfileVC: UIViewController {
     var filterTableTopCon: NSLayoutConstraint?
     //--------------------
 
+    // MARK: - Grid Collection View
+    
+    // animate top constraint of grid vw to move up and down
+    var gridCollectionTopCon: NSLayoutConstraint?
+    
+    let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+    
+    var gridCollectionVw: VerticalCollectionView = {
+        let vw = VerticalCollectionView()
+        vw.isPagingEnabled = true
+        vw.backgroundColor = Color.bg
+        vw.isScrollEnabled = true
+        vw.isUserInteractionEnabled = true
+        vw.showsVerticalScrollIndicator = false
+        return vw
+    }()
+    
+    // FIXME
+    
+    var clothingArr: [ClothingItem] = [ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]),ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"])]
     
     
     
@@ -315,6 +335,7 @@ class ProfileVC: UIViewController {
         
         addLayout()
         setupFilterTable()
+        setupGridCollection()
     }
     
     func setupFilterTable() {
@@ -325,6 +346,14 @@ class ProfileVC: UIViewController {
         filterTable.tableFooterView = UIView()
     }
 
+    func setupGridCollection() {
+        //layout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        //gridCollectionVw.setCollectionViewLayout(layout, animated: true)
+        gridCollectionVw.register(ClothingItemCell.self, forCellWithReuseIdentifier: ClothingItemCell.id)
+        gridCollectionVw.delegate = self
+        gridCollectionVw.dataSource = self
+        gridCollectionVw.reloadData()
+    }
 
 }
 

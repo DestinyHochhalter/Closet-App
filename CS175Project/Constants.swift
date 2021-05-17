@@ -35,9 +35,19 @@ enum Constants {
             
         }
         enum FilterOption {
-            static let OptionHeight: CGFloat = 40
+            static let OptionHeight: CGFloat = 45
             static let Arrow: CGSize = CGSize(width: 50, height: 50)
             static let topSpace: CGFloat = 12
+        }
+        
+        enum GridCollection {
+            static let gridCollectionHeight = UIScreen.main.bounds.height - (Constants.Sizes.Height.topHeight + Constants.Sizes.FilterOption.OptionHeight) + 1000
+        }
+        
+        enum ClothingCollectionCell {
+            static let padding: CGFloat = 5
+            static let spacing: CGFloat = 10
+            static let height: CGFloat = ((Constants.Sizes.FilterOption.OptionHeight + Constants.Sizes.GridCollection.gridCollectionHeight) - (Constants.Sizes.ClothingCollectionCell.spacing*4)) / 3
         }
     }
     enum Images {

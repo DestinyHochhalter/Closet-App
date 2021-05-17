@@ -15,22 +15,22 @@ import UIKit
 //     accessories
 //     0123456789 (timestamp)
 
-class Clothing {
+class ClothingItem {
     var name: String = "" // name of item from url
     var url: String  = "" // url item was purchsed from
-    var photos: [String] = [] // all avaliable photos from url
+    var photoUrls: [String] = [] // all avaliable photos from url
     var type: [FilterOptionType] = []// clothing type, ex: 'tops', can be more than one type, ex: 'recent' & 'tops'
     var timestamp: TimeInterval = 0.0 // date item was uploaded
     
     convenience init(name: String = "",
                      url: String = "",
-                     photos: [String] = [],
+                     photoUrls: [String] = [],
                      type: [FilterOptionType] = [.recent],
                      timestamp: TimeInterval = 0.0) {
         self.init()
         self.name = name
         self.url = url
-        self.photos = photos
+        self.photoUrls = photoUrls
         self.type = type
         self.timestamp = timestamp
     }

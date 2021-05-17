@@ -13,9 +13,12 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
         filterTable.isHidden = false
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear) {
             self.filterTableTopCon?.constant = 0
+            self.gridCollectionTopCon?.constant = Constants.Sizes.GridCollection.gridCollectionHeight//300
+            self.gridCollectionVw.reloadData()
+            //print("height: \(Constants.Sizes.GridCollection.gridCollectionHeight)")
             self.view.layoutIfNeeded()
             // rotate arrow on horizontal x axis
-            self.selectedFilterOptionArrow.transform = CGAffineTransform(scaleX: -1, y: 1)
+           // self.selectedFilterOptionArrow.transform = CGAffineTransform(scaleX: -1, y: 1)
         } completion: { (success) in
             completion?(success)
         }
@@ -24,9 +27,11 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     func hideFilterTable(duration: TimeInterval = 0, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear) {
             self.filterTableTopCon?.constant = -300
+            self.gridCollectionTopCon?.constant = 0
+            self.gridCollectionVw.reloadData()
             self.view.layoutIfNeeded()
             // rotate arrow on horizontal x axis
-            self.selectedFilterOptionArrow.transform = CGAffineTransform(scaleX: -1, y: 1)
+            //self.selectedFilterOptionArrow.transform = CGAffineTransform(scaleX: -1, y: 1)
         } completion: { (success) in
             self.filterTable.isHidden = true
             completion?(success)
@@ -85,5 +90,6 @@ extension ProfileVC: FilterOptionCellDelegate {
         // and the selected option (if any) is set in selectedFilterOptionLbl
         self.filterTable.reloadData()
         selectedFilterOptionLbl.text = cell.filterOption!.type.rawValue
+        toggleFilterTable()
     }
 }

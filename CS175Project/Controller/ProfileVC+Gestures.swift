@@ -29,13 +29,16 @@ extension ProfileVC {
             self.selectionLineLeadingCon?.constant = selectionLineLeading
             self.view.layoutIfNeeded()
         } completion: { (_) in
-            //
+            // change color to reflect selected item
+            self.collectionsIconImgVw.tintColor = Color.lightText
+            self.closetIconImgVw.tintColor = Color.mediumText
+            
+            
+            // show table view and collection view for closet tab
+            self.selectedFilterOptionVw.isHidden = false
+            self.gridCollectionVw.isHidden = false
         }
-
-        
-        // change color to reflect selected item
-        collectionsIconImgVw.tintColor = Color.lightText
-        closetIconImgVw.tintColor = Color.mediumText
+      //  self.filterTable.isHidden = false
     }
     
     @objc func collectionsTapped() {
@@ -46,12 +49,15 @@ extension ProfileVC {
             self.selectionLineLeadingCon?.constant = selectionLineLeading
             self.view.layoutIfNeeded()
         } completion: { (_) in
-            //
+            // change colors of icons
+            self.closetIconImgVw.tintColor = Color.lightText
+            self.collectionsIconImgVw.tintColor = Color.mediumText
+            
+            // hide table view and collection view for closet tab
+            self.selectedFilterOptionVw.isHidden = true
+            self.gridCollectionVw.isHidden = true
+       //     self.filterTable.isHidden = true
         }
-        //selectionLineLeadingCon?.constant = selectionLineLeading
-        // change colors of icons
-        closetIconImgVw.tintColor = Color.lightText
-        collectionsIconImgVw.tintColor = Color.mediumText
 
     }
     

@@ -33,6 +33,9 @@
 		3392D3E126452FB800D845E1 /* ClothingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392D3E026452FB800D845E1 /* ClothingItem.swift */; };
 		33C38AAA2651BF9000893ACB /* ClothingCollectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38AA92651BF9000893ACB /* ClothingCollectionsCell.swift */; };
 		33C38ACF2651F42300893ACB /* ClothingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38ACE2651F42300893ACB /* ClothingCollection.swift */; };
+		33C38B022652148A00893ACB /* ExploreVC+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38B012652148A00893ACB /* ExploreVC+Setup.swift */; };
+		33C38B0726521E1300893ACB /* ExploreVC+CollectionVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38B0626521E1300893ACB /* ExploreVC+CollectionVw.swift */; };
+		33C38B0C2652312F00893ACB /* ExploreVC+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38B0B2652312F00893ACB /* ExploreVC+Gestures.swift */; };
 		33FD9BA126263E1500A59045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA026263E1500A59045 /* AppDelegate.swift */; };
 		33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA226263E1500A59045 /* SceneDelegate.swift */; };
 		33FD9BA526263E1500A59045 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA426263E1500A59045 /* ProfileVC.swift */; };
@@ -85,6 +88,9 @@
 		3392D3E026452FB800D845E1 /* ClothingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingItem.swift; sourceTree = "<group>"; };
 		33C38AA92651BF9000893ACB /* ClothingCollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingCollectionsCell.swift; sourceTree = "<group>"; };
 		33C38ACE2651F42300893ACB /* ClothingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingCollection.swift; sourceTree = "<group>"; };
+		33C38B012652148A00893ACB /* ExploreVC+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExploreVC+Setup.swift"; sourceTree = "<group>"; };
+		33C38B0626521E1300893ACB /* ExploreVC+CollectionVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExploreVC+CollectionVw.swift"; sourceTree = "<group>"; };
+		33C38B0B2652312F00893ACB /* ExploreVC+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExploreVC+Gestures.swift"; sourceTree = "<group>"; };
 		33FD9B9D26263E1500A59045 /* CS175Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS175Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FD9BA026263E1500A59045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33FD9BA226263E1500A59045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +148,9 @@
 				335B561F26473DF0009CFF9E /* ProfileVC+CollectionVw.swift */,
 				3392D3C026434BE300D845E1 /* ProfileVC+Gestures.swift */,
 				337EAD492641DE8B00B2857C /* ExploreVC.swift */,
+				33C38B0626521E1300893ACB /* ExploreVC+CollectionVw.swift */,
+				33C38B012652148A00893ACB /* ExploreVC+Setup.swift */,
+				33C38B0B2652312F00893ACB /* ExploreVC+Gestures.swift */,
 				3391D5AC263D00E9008174D6 /* TabVC.swift */,
 				337EAD722641E66C00B2857C /* SplashVC.swift */,
 				3392D3A726433A7300D845E1 /* LoginVC.swift */,
@@ -522,8 +531,11 @@
 				33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */,
 				3392D3B726433E4500D845E1 /* SignupUsernameVC.swift in Sources */,
 				337EAD732641E66C00B2857C /* SplashVC.swift in Sources */,
+				33C38B0726521E1300893ACB /* ExploreVC+CollectionVw.swift in Sources */,
 				3392D3E126452FB800D845E1 /* ClothingItem.swift in Sources */,
+				33C38B022652148A00893ACB /* ExploreVC+Setup.swift in Sources */,
 				3392D3DC26452E5400D845E1 /* ClothingItemCell.swift in Sources */,
+				33C38B0C2652312F00893ACB /* ExploreVC+Gestures.swift in Sources */,
 				3392D3D72644F17600D845E1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -305,6 +305,22 @@ class ProfileVC: UIViewController {
     
     let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     
+    let dropShadowTopVw: UIImageView = {
+        let vw = UIImageView()
+        vw.image = Constants.Images.DropShadowTop
+        vw.contentMode = .scaleAspectFit
+        vw.tintColor = Color.mediumText
+        return vw
+    }()
+    
+    let dropShadowBottomVw: UIView = {
+        let vw = UIImageView()
+        vw.image = Constants.Images.DropShadowBottom
+        vw.contentMode = .scaleAspectFit
+        vw.tintColor = Color.mediumText
+        return vw
+    }()
+    
     var gridCollectionVw: VerticalCollectionView = {
         let vw = VerticalCollectionView()
         vw.isPagingEnabled = true

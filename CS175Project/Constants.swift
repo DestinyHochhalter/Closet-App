@@ -51,6 +51,15 @@ enum Constants {
             static let iconSize: CGFloat = 30
             static let height: CGFloat = ((Constants.Sizes.GridCollection.gridCollectionHeight - (Constants.Sizes.ClothingCollectionCell.spacing*4)) / 3) + 10
         }
+        
+        enum SearchField {
+            static let height: CGFloat = 45
+        }
+        
+        enum DropShadow {
+            static let spacing: CGFloat = 8
+            static let height: CGFloat = 25
+        }
     }
     enum Images {
         static let UpArrow = UIImage(named: "upArrow")!.pad(-16)
@@ -59,6 +68,10 @@ enum Constants {
         static let More = UIImage(named: "more")?.pad(-20)
         static let Closet = UIImage(named: "closet")
         static let Collections = UIImage(named: "collections")
+        static let Home = UIImage(named: "home")
+        static let Shop = UIImage(named: "shop")
+        static let DropShadowTop = UIImage(named: "dropShadowTop")
+        static let DropShadowBottom = UIImage(named: "dropShadowBottom")
         
     }
 }

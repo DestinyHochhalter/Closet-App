@@ -44,8 +44,8 @@ func getGridItemVertAlignment(index: Int, count: Int) -> GridItemVertAlignment {
     
     let isTopAndBottom = count < 4
     let isTopRow = ((count > 4) && (index < 3))
-    let remainder = count % 3 // how many items should be in last row
-    let isBottomRow = ((count - (index + 1)) < remainder)
+   // let remainder = count % 3 // how many items should be in last row
+    let isBottomRow = ((count - (index + 1)) < 3)
     
     if isTopAndBottom {
         return .topAndBottom
@@ -70,14 +70,14 @@ class ClothingItemCell: UICollectionViewCell {
         imgVw.contentMode = .scaleAspectFill
         imgVw.isUserInteractionEnabled = true
         // imgVw.layer.borderWidth = 2
-        imgVw.layer.borderColor = Color.mediumText.cgColor
+       // imgVw.layer.borderColor = Color.mediumText.cgColor
         return imgVw
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.contentView.backgroundColor = Color.mediumText
+        self.contentView.backgroundColor = Color.mediumText.withAlphaComponent(0.85)
         addGestures()
     }
     
@@ -86,7 +86,7 @@ class ClothingItemCell: UICollectionViewCell {
     }
     
     enum ClothingCellPadding {
-        static let padding: CGFloat = 1.5
+        static let padding: CGFloat = 1
         static let none: CGFloat = 0
     }
     

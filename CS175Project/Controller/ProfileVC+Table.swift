@@ -54,11 +54,17 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     
     // number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == filterTable {
         let unselectedCount = filterOptionArr.getSelectedAndUnselectedOptions().unselected.count
         return unselectedCount
+        } else {
+            // collections table
+            return collections.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == filterTable {
         if let cell = tableView.dequeueReusableCell(withIdentifier: FilterOptionCell.id, for: indexPath) as? FilterOptionCell {
             
             cell.delegate = self
@@ -68,11 +74,25 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             return UITableViewCell()
         }
+        } else {
+            // collections table
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ClothingCollectionsCell.id, for: indexPath) as? ClothingCollectionsCell {
+                let collection = collections[indexPath.row]
+                cell.delegate = self
+                cell.setup(collection: collection)
+                return cell
+            } else {
+                return UITableViewCell()
+            }
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == filterTable {
             return 50
+        } else if tableView == clothingCollectionsTable {
+            return Constants.Sizes.ClothingCollectionCell.height
         }
         return 0
     }
@@ -91,5 +111,16 @@ extension ProfileVC: FilterOptionCellDelegate {
         self.filterTable.reloadData()
         selectedFilterOptionLbl.text = cell.filterOption!.type.rawValue
         toggleFilterTable()
+    }
+}
+
+extension ProfileVC : ClothingCollectionsCellDelegate {
+    
+    func optionsTapped(cell: ClothingCollectionsCell) {
+        
+    }
+    
+    func clothingCollectionsCellItemTapped(cell: ClothingCollectionsCell) {
+        
     }
 }

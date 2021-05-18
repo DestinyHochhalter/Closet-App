@@ -14,6 +14,7 @@ extension ProfileVC {
         
         addFilterTable()
         addGridCollection()
+        addclothingCollectionsTable()
         
         
         // MARK: - Header View
@@ -129,6 +130,13 @@ extension ProfileVC {
         gridCollectionTopCon = NSLayoutConstraint(item: gridCollectionVw, attribute: .top, relatedBy: .equal, toItem: selectedFilterOptionVw, attribute: .bottom, multiplier: 1.0, constant: 0)
         gridCollectionTopCon?.isActive = true
       //  gridCollectionTopCon?.constant = Constants.Sizes.GridCollection.gridCollectionHeight
+        dropShadowTopVw.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor, Padding.zero), trailing: (self.view.trailingAnchor, Padding.zero), top: (gridCollectionVw.topAnchor, -Constants.Sizes.DropShadow.spacing),height: Constants.Sizes.DropShadow.height)
+        
+        dropShadowBottomVw.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor, Padding.zero), trailing: (self.view.trailingAnchor, Padding.zero), bottom: (gridCollectionVw.bottomAnchor, Constants.Sizes.DropShadow.spacing), height: Constants.Sizes.DropShadow.height)
+    }
+    
+    private func addclothingCollectionsTable() {
+        clothingCollectionsTable.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor, Padding.zero), trailing: (self.view.trailingAnchor, Padding.zero), top: (self.view.topAnchor, Constants.Sizes.Height.topHeight + Constants.Sizes.ClothingCollectionCell.spacing), bottom: (self.view.bottomAnchor, -Constants.Sizes.ClothingCollectionCell.spacing))
     }
     
     func setLabels() {

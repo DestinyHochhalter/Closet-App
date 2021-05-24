@@ -7,6 +7,8 @@
 
 import UIKit
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 
 class ProfileVC: UIViewController {
     
@@ -26,7 +28,7 @@ class ProfileVC: UIViewController {
     let profileImgVw: UIImageView = {
         let imgVw = UIImageView()
         imgVw.clipsToBounds = true
-        imgVw.contentMode = .scaleAspectFit
+        imgVw.contentMode = .scaleAspectFill
         imgVw.layer.cornerRadius = 25//Padding.mediumIconSz/2 // make imgVw perfect circle
         imgVw.layer.borderColor = Color.darkText.cgColor
         imgVw.layer.borderWidth = 2
@@ -353,18 +355,21 @@ class ProfileVC: UIViewController {
     // else show following status when viewing other profiles
     var isFollowing: Bool = false
     // FIXME
+    var db: Firestore?
+    var listener: CollectionReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.bg
         
-        setLabels()
+        db = Firestore.firestore()
         addGestures()
         
         addLayout()
         setupFilterTable()
         setupGridCollection()
         setupClothingCollectionsTable()
+        setFirestoreProfileListener()
     }
     
     func setupFilterTable() {

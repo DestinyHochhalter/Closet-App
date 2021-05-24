@@ -34,7 +34,7 @@ final class ClothingCollectionsCell: UITableViewCell {
     // collection name label
     var collectionNameLbl: UILabel = {
         let lbl = UILabel()
-        lbl.font = UIFont(name: "Avenir-Medium", size: 17)
+        lbl.font = UIFont(name: "Avenir-Heavy", size: 17)
         lbl.textColor = Color.mediumText
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textAlignment = NSTextAlignment.left

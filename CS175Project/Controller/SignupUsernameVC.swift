@@ -198,8 +198,9 @@ final class SignupUsernameVC: UIViewController {
             
             print("\(user.email!) created")
             print("account creation succesful")
-            self?.addFirebaseProfile(email: _email, username: _password)
-            
+            if let username = self?.username {
+            self?.addFirebaseProfile(email: _email, username: username)
+            }
             
             let tabbar = TabVC()
             let navigationController = UINavigationController(rootViewController: tabbar)
@@ -213,10 +214,13 @@ final class SignupUsernameVC: UIViewController {
     
     func addFirebaseProfile(email: String, username: String) {
         
-        // generate random ID
-        let id = NSUUID().uuidString
+        // make sure user has been added to FirestoreAuth
+        if let user = Auth.auth().currentUser?.uid {
         
-        let data = ["userId": id,
+//        // generate random ID
+//        let id = NSUUID().uuidString
+        
+        let data = ["userId": user,
                     "username": username,
                     "email": email,
                     "profileImageUrl": "",
@@ -226,10 +230,9 @@ final class SignupUsernameVC: UIViewController {
         // each user has user path
         // add a 'profile' path for the user
         
-        // make sure user has been added to FirestoreAuth
-        if (Auth.auth().currentUser?.uid) != nil {
+        
         // Firestore reference to profile document
-        let userRef = self.db.collection("users").document(id).collection("profile").document()
+        let userRef = self.db.collection("users").document(user).collection("profile").document()
            
         
         // add JSON formatted data to profile document

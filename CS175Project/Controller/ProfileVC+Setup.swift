@@ -146,14 +146,13 @@ extension ProfileVC {
     // use profile document to set labels
     func setLabels(document: QueryDocumentSnapshot) {
         // set labels for username, follower count, following count
-        // based on user info
         
         // username
-        userNameLbl.text = document["username"] as! String
+        userNameLbl.text = document["username"] as? String
         
         // follow labels
-        followersCountLbl.text = document["followerCount"] as! String
-        followingCountLbl.text = document["followingCount"] as! String
+        followersCountLbl.text = String(document["followerCount"] as? Int ?? 0)
+        followingCountLbl.text = String(document["followingCount"] as? Int ?? 0)
         
         // profile picture
         if let profileURL = document["profileImageUrl"] as? String,
@@ -162,22 +161,28 @@ extension ProfileVC {
         }
     
         selectedFilterOptionLbl.text = filterOptionArr.getSelectedAndUnselectedOptions().selected?.type.rawValue
-        }
     }
     
     
     func setFirestoreProfileListener() {
         
         if let user = Auth.auth().currentUser?.uid {
-            let userRef = db.collection("users").document(user).collection("profile")
+
+            let userRef = db?.collection("users").document(user).collection("profile")
                 .addSnapshotListener { querySnapshot, error in
                     guard let snapshot = querySnapshot else {
                         print("Error fetching snapshots: \(error!)")
                         return
                     }
                     
+                    // no changes
+                    snapshot.documents.forEach { doc in
+                        self.setLabels(document: doc)
+                    }
+                      
+                    // observe changes since ViewDidLoad is called
                     snapshot.documentChanges.forEach { diff in
-
+                                                
                         if (diff.type == .modified) {
                             print("Modified Document: \(diff.document.data())")
                             
@@ -188,4 +193,5 @@ extension ProfileVC {
                     }
                 }
         }
+}
 }

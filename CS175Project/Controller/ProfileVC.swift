@@ -28,7 +28,7 @@ class ProfileVC: UIViewController {
     let profileImgVw: UIImageView = {
         let imgVw = UIImageView()
         imgVw.clipsToBounds = true
-        imgVw.contentMode = .scaleAspectFit
+        imgVw.contentMode = .scaleAspectFill
         imgVw.layer.cornerRadius = 25//Padding.mediumIconSz/2 // make imgVw perfect circle
         imgVw.layer.borderColor = Color.darkText.cgColor
         imgVw.layer.borderWidth = 2

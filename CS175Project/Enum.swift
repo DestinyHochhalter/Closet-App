@@ -26,7 +26,6 @@ enum VC: String {
 var currentVC: VC = .profile
 
 
-
 enum Padding {
     // Padding for entire app - keep layout consistent
     static let leading: CGFloat = 16

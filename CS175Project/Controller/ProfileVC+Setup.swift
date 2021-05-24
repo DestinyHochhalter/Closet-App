@@ -7,8 +7,12 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+
 
 extension ProfileVC {
+    
     
     func addLayout() {
         
@@ -139,16 +143,49 @@ extension ProfileVC {
         clothingCollectionsTable.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor, Padding.zero), trailing: (self.view.trailingAnchor, Padding.zero), top: (self.view.topAnchor, Constants.Sizes.Height.topHeight + Constants.Sizes.ClothingCollectionCell.spacing), bottom: (self.view.bottomAnchor, -Constants.Sizes.ClothingCollectionCell.spacing))
     }
     
-    func setLabels() {
+    // use profile document to set labels
+    func setLabels(document: QueryDocumentSnapshot) {
         // set labels for username, follower count, following count
         // based on user info
-        // FIXME: set labels accoridng to user info
         
-        userNameLbl.text = "Destinyhoch"
-        followersCountLbl.text = "300"
-        followingCountLbl.text = "450"
+        // username
+        userNameLbl.text = document["username"] as! String
         
+        // follow labels
+        followersCountLbl.text = document["followerCount"] as! String
+        followingCountLbl.text = document["followingCount"] as! String
+        
+        // profile picture
+        if let profileURL = document["profileImageUrl"] as? String,
+           let url = URL(string: profileURL){
+            self.profileImgVw.kf.setImage(with: url)
+        }
+    
         selectedFilterOptionLbl.text = filterOptionArr.getSelectedAndUnselectedOptions().selected?.type.rawValue
-        
+        }
     }
+    
+    
+    func setFirestoreProfileListener() {
+        
+        if let user = Auth.auth().currentUser?.uid {
+            let userRef = db.collection("users").document(user).collection("profile")
+                .addSnapshotListener { querySnapshot, error in
+                    guard let snapshot = querySnapshot else {
+                        print("Error fetching snapshots: \(error!)")
+                        return
+                    }
+                    
+                    snapshot.documentChanges.forEach { diff in
+
+                        if (diff.type == .modified) {
+                            print("Modified Document: \(diff.document.data())")
+                            
+                            self.setLabels(document: diff.document)
+                            
+                        }
+                        
+                    }
+                }
+        }
 }

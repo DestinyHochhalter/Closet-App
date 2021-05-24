@@ -36,6 +36,7 @@
 		33C38B022652148A00893ACB /* ExploreVC+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38B012652148A00893ACB /* ExploreVC+Setup.swift */; };
 		33C38B0726521E1300893ACB /* ExploreVC+CollectionVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38B0626521E1300893ACB /* ExploreVC+CollectionVw.swift */; };
 		33C38B0C2652312F00893ACB /* ExploreVC+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38B0B2652312F00893ACB /* ExploreVC+Gestures.swift */; };
+		33C38B1126523A7700893ACB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C38B1026523A7700893ACB /* Profile.swift */; };
 		33FD9BA126263E1500A59045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA026263E1500A59045 /* AppDelegate.swift */; };
 		33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA226263E1500A59045 /* SceneDelegate.swift */; };
 		33FD9BA526263E1500A59045 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD9BA426263E1500A59045 /* ProfileVC.swift */; };
@@ -91,6 +92,7 @@
 		33C38B012652148A00893ACB /* ExploreVC+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExploreVC+Setup.swift"; sourceTree = "<group>"; };
 		33C38B0626521E1300893ACB /* ExploreVC+CollectionVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExploreVC+CollectionVw.swift"; sourceTree = "<group>"; };
 		33C38B0B2652312F00893ACB /* ExploreVC+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExploreVC+Gestures.swift"; sourceTree = "<group>"; };
+		33C38B1026523A7700893ACB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		33FD9B9D26263E1500A59045 /* CS175Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS175Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FD9BA026263E1500A59045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33FD9BA226263E1500A59045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				3392D3E026452FB800D845E1 /* ClothingItem.swift */,
 				33C38ACE2651F42300893ACB /* ClothingCollection.swift */,
+				33C38B1026523A7700893ACB /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				337EAD4A2641DE8B00B2857C /* ExploreVC.swift in Sources */,
 				3392D3BC2643491C00D845E1 /* ProfileVC+Setup.swift in Sources */,
 				33FD9BA126263E1500A59045 /* AppDelegate.swift in Sources */,
+				33C38B1126523A7700893ACB /* Profile.swift in Sources */,
 				3391D5A8263CFC9E008174D6 /* Enum.swift in Sources */,
 				33FD9BA326263E1500A59045 /* SceneDelegate.swift in Sources */,
 				3392D3B726433E4500D845E1 /* SignupUsernameVC.swift in Sources */,

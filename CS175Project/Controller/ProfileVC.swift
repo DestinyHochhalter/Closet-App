@@ -7,6 +7,8 @@
 
 import UIKit
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 
 class ProfileVC: UIViewController {
     
@@ -353,18 +355,21 @@ class ProfileVC: UIViewController {
     // else show following status when viewing other profiles
     var isFollowing: Bool = false
     // FIXME
+    var db: Firestore?
+    var listener: CollectionReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.bg
         
-        setLabels()
+        db = Firestore.firestore()
         addGestures()
         
         addLayout()
         setupFilterTable()
         setupGridCollection()
         setupClothingCollectionsTable()
+        setFirestoreProfileListener()
     }
     
     func setupFilterTable() {

@@ -67,7 +67,7 @@ extension ProfileVC {
         let alert = UIAlertController(title: nil, message: "Settings", preferredStyle: .actionSheet)
         let closeAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
         
-        let logoutAction = UIAlertAction(title: "Log out", style: .destructive) { (action) in
+        let logoutAction = UIAlertAction(title: "Sign out", style: .destructive) { (action) in
             // sign out
             let firebaseAuth = Auth.auth()
             do {

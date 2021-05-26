@@ -17,7 +17,12 @@ extension ExploreVC:  UICollectionViewDataSource, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        switch(tableType) {
+        case .explore:
+            return exploreDict.count
+        case .shop:
+            return shopDict.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -56,7 +61,16 @@ extension ExploreVC:  UICollectionViewDataSource, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClothingItemCell.id, for: indexPath) as? ClothingItemCell {
             
-            cell.setup(clothingItem: items[indexPath.row], index: indexPath.item, count: items.count)
+            var item: ClothingItem?
+            
+            switch(tableType) {
+            case .explore:
+                item = Array(self.exploreDict)[indexPath.row].value
+            case .shop:
+                item = Array(self.shopDict)[indexPath.row].value
+            }
+            
+            cell.setup(clothingItem: item!, index: indexPath.item, count: items.count)
            // cell.delegate = self
             return cell
 

@@ -335,8 +335,9 @@ class ProfileVC: UIViewController {
     
     // FIXME
     
-    var clothingArr: [ClothingItem] = [ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]),ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://www.chanel.com/images//t_one/t_fashion//q_auto:good,f_jpg,fl_lossy,dpr_1.2/w_1680/boy-chanel-handbag-green-calfskin-silver-tone-metal-calfskin-silver-tone-metal-packshot-default-a67086b02856n6512-8824107859998.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"]), ClothingItem(name: "", url: "", photoUrls: ["https://aritzia.scene7.com/is/image/Aritzia/hi-res/s21_04_a08_84658_19631_on_a.jpg"])]
+    var clothingArr: [ClothingItem] = [ClothingItem(name: "Mesh Pocket Shell Jacket Blue", brand: "PALACE", url: "https://shop-usa.palaceskateboards.com/products/s2ghxxjwfla7", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/Palace_Spring_jacket_mesh_blue_2994-1_2e8d7b0b-fbef-46c0-833d-54e4f249a474_640x@2x.jpg?v=1620913942", type: .outwear), ClothingItem(name: "Engineer T-Shirt", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/1c6f4l153k15", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/Palace-T-shirt-stripe-blue-0873_39395d63-1424-4d58-92a3-1012ac228f0a_640x@2x.jpg?v=1618824563", type: .tops), ClothingItem(name: "Sofar Shell Shorts Lilac", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/mkeobt1lqby8", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/Palace_Spring_short_sofar_lilac_2746_640x@2x.jpg?v=1621589685", type: .bottoms), ClothingItem(name: "Basically A 6-Panel Lilac", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/y8fcve9e1w75", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/palace_ss_21_cap_6_panel_basically_purple_1946_640x@2x.jpg?v=1620376973", type: .accessories), ClothingItem(name: "Palace Crocs Camo", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/bo7w6ijpbzuu", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/palace_summer_21_amg_jkt_1180_640x@2x.jpg?v=1620312885", type: .footwear), ClothingItem(name: "SYSTEM LOGO TEE GREY", brand: "momformal", url: "https://shop.momformal.com/product/system-logo-tee-grey", photoUrl: "https://assets.bigcartel.com/product_images/297187221/3E7A8E8D-1692-451A-98D2-B8CD6191D8F7.jpeg?auto=format&fit=max&w=2000", type: .tops), ClothingItem(name: "Stitch Up Shell Shorts Green/Blue", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/ec2cl30nrixg", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/Palace_Spring_short_stitch_up_grn_navy_2756_2b0c0065-5ec4-48d7-83a4-e1acd07174e2_640x@2x.jpg?v=1620330061", type: .bottoms), ClothingItem(name: "Square Patch Joggers Black", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/y8lzxgsjelgd", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/palace-ss-21-jogger-blk-0381_641a8ec0-f5fd-4c4c-b18d-3d4356b45513_640x@2x.jpg?v=1620395896", type: .bottoms), ClothingItem(name: "S/S Pocket Tee", brand: "Supreme", url: "https://www.supremenewyork.com/shop/tops-sweaters/s8zjgpsq6/gpmuxrlte", photoUrl: "https://assets.supremenewyork.com/206461/ma/nzMmaOPXIp4.jpg", type: .tops), ClothingItem(name: "Waist bag", brand: "Supreme", url: "https://www.supremenewyork.com/shop/bags/g6iqufywr/uxb0tlhki", photoUrl: "https://assets.supremenewyork.com/207190/ma/q4VjvpOgyH8.jpg", type: .accessories), ClothingItem(name: "OG Puffer Jacket", brand: "Girl", url: "https://crailstore.com/products/w41-d1-girl-og-puffer-jacket/#filter:brand=girl", photoUrl: "https://cdn.shopify.com/s/files/1/0208/0114/products/og-puffer-jacket_1_001_1024x1024.jpg?v=1616661820", type: .outwear), ClothingItem(name: "Tangled Tee", brand: "Girl", url: "https://crailstore.com/products/w40-d3-girl-tangled-tee/#filter:brand=girl", photoUrl: "https://cdn.shopify.com/s/files/1/0208/0114/products/tangled-tee_2_007_1024x1024.jpg?v=1611736170", type: .tops)]
     
+    var collectionsArr: [ClothingItem] = [ClothingItem(name: "Engineer T-Shirt", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/1c6f4l153k15", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/Palace-T-shirt-stripe-blue-0873_39395d63-1424-4d58-92a3-1012ac228f0a_640x@2x.jpg?v=1618824563", type: .tops), ClothingItem(name: "Stitch Up Shell Shorts Green/Blue", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/ec2cl30nrixg", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/Palace_Spring_short_stitch_up_grn_navy_2756_2b0c0065-5ec4-48d7-83a4-e1acd07174e2_640x@2x.jpg?v=1620330061", type: .bottoms), ClothingItem(name: "Palace Crocs Camo", brand: "Palace", url: "https://shop-usa.palaceskateboards.com/products/bo7w6ijpbzuu", photoUrl: "https://cdn.shopify.com/s/files/1/0923/4190/products/palace_summer_21_amg_jkt_1180_640x@2x.jpg?v=1620312885", type: .footwear)]
     
     // MARK: - Clothing Collections
     let clothingCollectionsTable: UITableView = {
@@ -348,7 +349,12 @@ class ProfileVC: UIViewController {
         return vw
     }()
     
-    var collections: [ClothingCollection] = []
+    // MARK: - Datasources for ProfileVC
+    var closetDict = [String: ClothingItem]() // id : Object
+    var filteredClosetDict = [String: ClothingItem]()
+    var collection = ClothingCollection(name: "Spring Fashion")
+    
+  //  var collections: [ClothingCollection] = []
 
     
     // if viewing own profile, do not show 'follow'/'following' box
@@ -369,7 +375,16 @@ class ProfileVC: UIViewController {
         setupFilterTable()
         setupGridCollection()
         setupClothingCollectionsTable()
+        
+        
+        // Add Firestore Listeners
         setFirestoreProfileListener()
+        setFirestoreClosetListener()
+        setFirestoreCollectionsListener()
+        
+       // addCollectionsItems(collectionsArr)
+       // addCollectionsRef(collectionsArr)
+       // addClosetItems(arr: clothingArr)
     }
     
     func setupFilterTable() {
@@ -393,8 +408,10 @@ class ProfileVC: UIViewController {
         clothingCollectionsTable.register(ClothingCollectionsCell.self,forCellReuseIdentifier: ClothingCollectionsCell.id)
         clothingCollectionsTable.delegate = self
         clothingCollectionsTable.dataSource = self
-        collections.append(ClothingCollection(name: "Favorites", items: clothingArr, timestamp: 0.0))
+       //collection.append(ClothingCollection(name: "Favorites", items: clothingArr, timestamp: 0.0))
         clothingCollectionsTable.reloadData()
+        
+        
     }
 
 }

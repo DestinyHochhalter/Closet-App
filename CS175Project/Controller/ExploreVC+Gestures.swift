@@ -21,10 +21,11 @@ extension ExploreVC {
             // change color to reflect selected item
             self.shopIconImgVw.tintColor = Color.lightText
             self.homeIconImgVw.tintColor = Color.mediumText
-            
+            self.tableType = .explore
+            self.exploreCollectionVw.reloadData()
             
             // show explore collection view for home tab
-            self.exploreCollectionVw.isHidden = false
+            //self.exploreCollectionVw.isHidden = false
         }
     }
     
@@ -39,9 +40,10 @@ extension ExploreVC {
             // change colors of icons
             self.homeIconImgVw.tintColor = Color.lightText
             self.shopIconImgVw.tintColor = Color.mediumText
-            
+            self.tableType = .shop
+            self.exploreCollectionVw.reloadData()
             // hide explore collection view for shop tab
-            self.exploreCollectionVw.isHidden = true
+          //  self.exploreCollectionVw.isHidden = true
         }
 
     }

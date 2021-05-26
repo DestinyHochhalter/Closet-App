@@ -34,7 +34,7 @@ final class ClothingCollectionsCell: UITableViewCell {
     // collection name label
     var collectionNameLbl: UILabel = {
         let lbl = UILabel()
-        lbl.font = UIFont(name: "Avenir-Heavy", size: 17)
+        lbl.font = UIFont(name: "Avenir-Medium", size: 16)
         lbl.textColor = Color.mediumText
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textAlignment = NSTextAlignment.left
@@ -88,6 +88,8 @@ final class ClothingCollectionsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+//        self.contentView.backgroundColor = Color.bg
+//        self.backgroundColor = Color.bg
         addGestures()
     }
 
@@ -96,19 +98,20 @@ final class ClothingCollectionsCell: UITableViewCell {
     func setup(collection: ClothingCollection) {
         // set photos
         
-        if let firstPhotoUrl = collection.items[0].photoUrls.first,
-        let url = URL(string: firstPhotoUrl) {
+        if !collection.items.isEmpty {
+        let firstPhotoUrl = collection.items[0].photoUrl
+        if let url = URL(string: firstPhotoUrl) {
             self.clothingImgVw1.kf.setImage(with: url)
         }
-        
-        if let secondPhotoUrl = collection.items[1].photoUrls.first,
-        let url = URL(string: secondPhotoUrl) {
-            self.clothingImgVw2.kf.setImage(with: url)
-        }
-        
-        if let thirdPhotoUrl = collection.items[2].photoUrls.first,
-        let url = URL(string: thirdPhotoUrl) {
-            self.clothingImgVw3.kf.setImage(with: url)
+    
+        let secondPhotoUrl = collection.items[1].photoUrl
+        let url2 = URL(string: secondPhotoUrl)
+        self.clothingImgVw2.kf.setImage(with: url2)
+    
+
+        let thirdPhotoUrl = collection.items[2].photoUrl
+        let url3 = URL(string: thirdPhotoUrl)
+        self.clothingImgVw3.kf.setImage(with: url3)
         }
         
         // set collection label

@@ -24,6 +24,9 @@ enum GridItemVertAlignment: String {
     case bottom = "bottom"
     case topAndBottom = "top and bottom"
     case none = "none"
+    case one = "one"
+    case four = "four"
+    case fourth = "fourth"
 }
 
 // Based on index, get alignment of cell
@@ -42,8 +45,13 @@ func getGridItemHorizAlignment(index: Int) -> GridItemHorizAlignment {
 // determine if cell is at the top or botton of collection view (or both if only one row)
 func getGridItemVertAlignment(index: Int, count: Int) -> GridItemVertAlignment {
     
-    let isTopAndBottom = count < 4
-    let isTopRow = ((count > 4) && (index < 3))
+    if count == 1 { return .one }
+    if (count == 4 && index == 3) {
+        return .fourth
+    } else if (count == 4) { return .four}
+    
+    let isTopAndBottom = count <= 3
+    let isTopRow = ((count > 3) && (index <= 2))
    // let remainder = count % 3 // how many items should be in last row
     let isBottomRow = ((count - (index + 1)) < 3)
     
@@ -99,6 +107,18 @@ class ClothingItemCell: UICollectionViewCell {
             print("left cell! \(index)\n")
             // left padding, no right
             switch vertAlignment {
+            case .one: // top, right, bottom padding
+                clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.padding), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.padding), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.padding))
+                break
+                
+            case .fourth:
+                clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.padding), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.padding), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.padding))
+                break
+                
+            case .four:
+                clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.padding), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.none), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.none))
+                break
+                
             // top and bottom padding
             case .none:
                 print("left none\n")
@@ -145,7 +165,11 @@ class ClothingItemCell: UICollectionViewCell {
             case .bottom:
                 // no top padding
                 print("right bottom\n")
-                clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.none), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.padding), top: (self.contentView.topAnchor, ClothingCellPadding.none), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.padding))
+                clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.none), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.padding), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.padding))
+                break
+            case .one, .fourth: break
+            case .four:
+                clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.none), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.padding), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.padding))
                 break
             }
             break
@@ -161,10 +185,10 @@ class ClothingItemCell: UICollectionViewCell {
                 clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.padding), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.padding), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.none))
                 break
                 
-            case .topAndBottom:
+            case .topAndBottom, .four:
                 // pad all sides
                 print("middle top bottom")
-                clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.padding), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.none), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.padding))
+                clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.padding), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.padding), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.padding))
                 break
                 
             case .top:
@@ -180,6 +204,7 @@ class ClothingItemCell: UICollectionViewCell {
                 // no left or right padding
                 clothingImgVw.addLayout(parentVw: self.contentView, leading: (self.contentView.leadingAnchor, ClothingCellPadding.padding), trailing: (self.contentView.trailingAnchor, -ClothingCellPadding.padding), top: (self.contentView.topAnchor, ClothingCellPadding.padding), bottom: (self.contentView.bottomAnchor, -ClothingCellPadding.padding))
                 break
+            case .one, .fourth: break
             }
             
             break
@@ -198,8 +223,8 @@ class ClothingItemCell: UICollectionViewCell {
     func setup(clothingItem: ClothingItem, index: Int, count: Int) {
         layoutCell(index: index, count: count)
         
-        if let firstPhotoUrl = clothingItem.photoUrls.first,
-           let url = URL(string: firstPhotoUrl){
+        let firstPhotoUrl = clothingItem.photoUrl
+           if let url = URL(string: firstPhotoUrl){
             // self.clothingImgVw.kf.setImage(with: url, placeholder: nil, options: [.cacheOriginalImage])
             self.clothingImgVw.kf.setImage(with: url)
         }

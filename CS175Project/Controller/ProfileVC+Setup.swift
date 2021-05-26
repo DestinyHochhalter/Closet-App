@@ -63,7 +63,7 @@ extension ProfileVC {
         
         separatorView2.addLayout(parentVw: followVw, leading: (view.leadingAnchor, Padding.zero), trailing: (view.trailingAnchor, Padding.traling), top: (followersLbl.bottomAnchor, Padding.separatorSpacing), height: Padding.separatorHeight)
         
-
+        
         
         // -------------------------------------------------------------------------------------------------------------
         
@@ -85,7 +85,7 @@ extension ProfileVC {
         
         let selectionLineLeading = (mid - Padding.selectionLineWidth) / 2
         selectionLineLeadingCon = NSLayoutConstraint(item: selectionLine, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 25)
-            
+        
         selectionLineLeadingCon?.isActive = true
         
         // changes leading constraint
@@ -104,7 +104,7 @@ extension ProfileVC {
             
         }
         
-       
+        
     }
     
     private func addFilterTable() {
@@ -120,9 +120,9 @@ extension ProfileVC {
         collectionLoadingView.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor,0), trailing: (self.view.trailingAnchor,0), top: (selectedFilterOptionVw.bottomAnchor,0), bottom: (self.view.bottomAnchor,0))
         
         
-        filterTable.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor,0), trailing: (self.view.trailingAnchor,0), height: 300)
-        filterTableTopCon = NSLayoutConstraint(item: filterTable, attribute: .top, relatedBy: .equal, toItem: selectedFilterOptionVw, attribute: .bottom, multiplier: 1.0, constant: 0)
-        filterTableTopCon?.isActive = true
+        filterTable.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor,0), trailing: (self.view.trailingAnchor,0), top: (selectedFilterOptionVw.bottomAnchor, 0),height: 300)
+       // filterTableTopCon = NSLayoutConstraint(item: filterTable, attribute: .top, relatedBy: .equal, toItem: selectedFilterOptionVw, attribute: .bottom, multiplier: 1.0, constant: 0)
+       // filterTableTopCon?.isActive = true
         
         hideFilterTable()
         
@@ -133,7 +133,7 @@ extension ProfileVC {
         gridCollectionVw.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor, Padding.zero), trailing: (self.view.trailingAnchor, -Padding.zero), bottom: (self.view.bottomAnchor, Padding.zero))
         gridCollectionTopCon = NSLayoutConstraint(item: gridCollectionVw, attribute: .top, relatedBy: .equal, toItem: selectedFilterOptionVw, attribute: .bottom, multiplier: 1.0, constant: 0)
         gridCollectionTopCon?.isActive = true
-      //  gridCollectionTopCon?.constant = Constants.Sizes.GridCollection.gridCollectionHeight
+        //  gridCollectionTopCon?.constant = Constants.Sizes.GridCollection.gridCollectionHeight
         dropShadowTopVw.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor, Padding.zero), trailing: (self.view.trailingAnchor, Padding.zero), top: (gridCollectionVw.topAnchor, -Constants.Sizes.DropShadow.spacing),height: Constants.Sizes.DropShadow.height)
         
         dropShadowBottomVw.addLayout(parentVw: self.view, leading: (self.view.leadingAnchor, Padding.zero), trailing: (self.view.trailingAnchor, Padding.zero), bottom: (gridCollectionVw.bottomAnchor, Constants.Sizes.DropShadow.spacing), height: Constants.Sizes.DropShadow.height)
@@ -159,7 +159,7 @@ extension ProfileVC {
            let url = URL(string: profileURL){
             self.profileImgVw.kf.setImage(with: url)
         }
-    
+        
         selectedFilterOptionLbl.text = filterOptionArr.getSelectedAndUnselectedOptions().selected?.type.rawValue
     }
     
@@ -167,8 +167,8 @@ extension ProfileVC {
     func setFirestoreProfileListener() {
         
         if let user = Auth.auth().currentUser?.uid {
-
-            let userRef = db?.collection("users").document(user).collection("profile")
+            
+            db?.collection("users").document(user).collection("profile")
                 .addSnapshotListener { querySnapshot, error in
                     guard let snapshot = querySnapshot else {
                         print("Error fetching snapshots: \(error!)")
@@ -179,19 +179,257 @@ extension ProfileVC {
                     snapshot.documents.forEach { doc in
                         self.setLabels(document: doc)
                     }
-                      
+                    
                     // observe changes since ViewDidLoad is called
                     snapshot.documentChanges.forEach { diff in
-                                                
+                        
                         if (diff.type == .modified) {
                             print("Modified Document: \(diff.document.data())")
                             
                             self.setLabels(document: diff.document)
+                        }
+                    }
+                }
+        }
+    }
+    
+    
+    func addFirestoreClosetData(document: QueryDocumentSnapshot) {
+        
+        let itemId = document["id"] as! String
+        let brand = document["brand"] as! String
+        let name = document["name"] as! String
+        let photoUrl = document["photoUrl"] as! String
+        let type = document["type"] as! String
+        let url = document["url"] as! String
+        
+        let _type = getFilterOptionType(type)
+        
+        
+        let closetItem = ClothingItem(name: name, brand: brand, url: url, photoUrl: photoUrl, type: _type)
+        
+        // copy objects to two arrays, one filter array and one non-filtered array
+        self.closetDict[itemId] = closetItem
+        self.filteredClosetDict[itemId] = closetItem
+        self.gridCollectionVw.reloadData()
+    }
+    
+    func setFirestoreClosetListener() {
+        if let user = Auth.auth().currentUser?.uid {
+            
+            db?.collection("users").document(user).collection("closet")
+                .addSnapshotListener { querySnapshot, error in
+                    guard let snapshot = querySnapshot else {
+                        print("Error fetching snapshots: \(error!)")
+                        return
+                    }
+                    
+                    // no changes
+                    snapshot.documents.forEach { doc in
+                        self.addFirestoreClosetData(document: doc)
+                        
+                    }
+                    
+                    // observe changes since ViewDidLoad is called
+                    snapshot.documentChanges.forEach { diff in
+                        
+                        if (diff.type == .modified) {
+                            self.addFirestoreClosetData(document: diff.document)
+                            
+                        }
+                        
+                        if (diff.type == .removed) {
+                            // handle UI
+                            let ref = diff.document.data()
+                            self.closetDict[ref["id"] as! String] = nil
                             
                         }
                         
                     }
                 }
+            
         }
-}
+    }
+        
+    
+    // Collections
+    func addFirestoreCollectionsData(document: QueryDocumentSnapshot) {
+
+        let brand = document["brand"] as! String
+        let name = document["name"] as! String
+        let photoUrl = document["photoUrl"] as! String
+        let type = document["type"] as! String
+        let url = document["url"] as! String
+        
+        let _type = getFilterOptionType(type)
+
+        
+        let closetItem = ClothingItem(name: name, brand: brand, url: url, photoUrl: photoUrl, type: _type)
+           
+                
+        self.collection.items.append(closetItem)
+        self.clothingCollectionsTable.reloadData()
+    }
+    
+    func setFirestoreCollectionsListener() {
+        if let user = Auth.auth().currentUser?.uid {
+
+            db?.collection("users").document(user).collection("collection")
+                .addSnapshotListener { querySnapshot, error in
+                    guard let snapshot = querySnapshot else {
+                        print("Error fetching snapshots: \(error!)")
+                        return
+                    }
+                    
+                    // no changes
+                    snapshot.documents.forEach { doc in
+                        self.addFirestoreCollectionsData(document: doc)
+                        
+                    }
+                    
+                    // observe changes since ViewDidLoad is called
+                    snapshot.documentChanges.forEach { diff in
+                        
+                        if (diff.type == .modified) {
+                            self.addFirestoreCollectionsData(document: diff.document)
+                        }
+                    }
+                }
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK:- Add fake data for user
+    
+    
+    
+    func addClosetItems(arr: [ClothingItem]) {
+        for item in 0..<arr.count {
+            
+            addClosetRef(arr[item])
+            
+        }
+    }
+    
+    func addClosetRef(_ item: ClothingItem) {
+        if let user = Auth.auth().currentUser?.uid {
+            if let usersRef = db?.collection("users") {
+                let id = NSUUID().uuidString
+            
+                
+                
+                let closetRef = usersRef.document(user).collection("closet")
+                let clothingRef = closetRef.document(id)
+                
+                let data = ["id": id,
+                            "name": item.name,
+                            "brand": item.brand,
+                            "url": item.url,
+                            "photoUrl": item.photoUrl,
+                            "type": item.type.rawValue,
+                            "timestamp": item.timestamp] as [String : Any]
+                print("data \(data)")
+                
+                clothingRef.setData(data)
+                
+                
+            }
+        }
+    }
+    
+    func addCollectionsItems(_ arr: [ClothingItem]) {
+        for item in 0..<arr.count {
+            
+            addCollectionsRef(arr[item])
+            
+        }
+    }
+    
+    func addCollectionsRef(_ item: ClothingItem) {
+        if let user = Auth.auth().currentUser?.uid {
+            if let usersRef = db?.collection("users") {
+                let id = NSUUID().uuidString
+            
+                
+                
+                let collectionRef = usersRef.document(user).collection("collection")
+                let clothingRef = collectionRef.document(id)
+                
+                let data = ["id": id,
+                            "name": item.name,
+                            "brand": item.brand,
+                            "url": item.url,
+                            "photoUrl": item.photoUrl,
+                            "type": item.type.rawValue,
+                            "timestamp": item.timestamp] as [String : Any]
+    
+                
+                clothingRef.setData(data)
+                
+                
+            }
+        }
+    }
+    
+    
+    
+    
+    func addExploreRef(arr: [ClothingItem], index: Int) {
+        if let user = Auth.auth().currentUser?.uid {
+            if let usersRef = db?.collection("users") {
+                let id = NSUUID().uuidString
+                
+                
+                let item: ClothingItem = arr[index]
+                
+                
+                let exploreRef = usersRef.document(user).collection("explore")
+                let clothingRef = exploreRef.document(id)
+                
+                let data = ["name": item.name,
+                            "brand": item.brand,
+                            "url": item.url,
+                            "photoUrls": item.photoUrl,
+                            "type": item.type,
+                            "timestamp": item.timestamp] as [String : Any]
+                
+                clothingRef.setData(data)
+            }
+        }
+    }
+    
+    func addShopRef(arr: [ClothingItem], index: Int) {
+        if let user = Auth.auth().currentUser?.uid {
+            if let usersRef = db?.collection("users") {
+                let id = NSUUID().uuidString
+                
+                
+                let item: ClothingItem = arr[index]
+                
+                
+                let shopRef = usersRef.document(user).collection("shop")
+                let clothingRef = shopRef.document(id)
+                
+                let data = ["name": item.name,
+                            "brand": item.brand,
+                            "url": item.url,
+                            "photoUrls": item.photoUrl,
+                            "type": item.type,
+                            "timestamp": item.timestamp] as [String : Any]
+                
+                clothingRef.setData(data)
+            }
+        }
+    }
+    
+    
+    
+    
 }

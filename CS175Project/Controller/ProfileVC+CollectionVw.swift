@@ -11,8 +11,9 @@ import UIKit
 extension ProfileVC: ClothingItemCellDelegate {
     func clothingCellTapped(cell: ClothingItemCell) {
         if let indexPath = gridCollectionVw.indexPath(for: cell) {
-            let clothingItem = clothingArr[indexPath.item]
-            print(clothingItem.photoUrls.first ?? "none")
+            
+            let clothingItem = Array(filteredClosetDict)[indexPath.item].value
+            print(clothingItem.name)
             
         }
     }
@@ -28,7 +29,7 @@ extension ProfileVC:  UICollectionViewDataSource, UICollectionViewDelegate, UICo
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return clothingArr.count
+        return filteredClosetDict.count //clothingArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -67,7 +68,8 @@ extension ProfileVC:  UICollectionViewDataSource, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClothingItemCell.id, for: indexPath) as? ClothingItemCell {
             
-            cell.setup(clothingItem: clothingArr[indexPath.row], index: indexPath.item, count: clothingArr.count)
+            let item = Array(self.filteredClosetDict)[indexPath.row].value
+            cell.setup(clothingItem: item, index: indexPath.item, count: filteredClosetDict.count)
             cell.delegate = self
             return cell
 

@@ -239,10 +239,8 @@ final class SignupUsernameVC: UIViewController {
         userRef.setData(data)
         }
         
-
         }
-        
-
+    
     
 }
 
@@ -254,4 +252,3 @@ extension SignupUsernameVC: UITextFieldDelegate {
         self.username = usernameTextField.text
     }
 }
-

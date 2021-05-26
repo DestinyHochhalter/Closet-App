@@ -17,20 +17,23 @@ import UIKit
 
 class ClothingItem {
     var name: String = "" // name of item from url
+    var brand: String = "" // brand name
     var url: String  = "" // url item was purchsed from
-    var photoUrls: [String] = [] // all avaliable photos from url
-    var type: [FilterOptionType] = []// clothing type, ex: 'tops', can be more than one type, ex: 'recent' & 'tops'
+    var photoUrl: String = "" // all avaliable photos from url
+    var type: FilterOptionType = .recent// clothing type, ex: 'tops', can be more than one type, ex: 'recent' & 'tops'
     var timestamp: TimeInterval = 0.0 // date item was uploaded
     
     convenience init(name: String = "",
+                     brand: String = "",
                      url: String = "",
-                     photoUrls: [String] = [],
-                     type: [FilterOptionType] = [.recent],
+                     photoUrl: String = "",
+                     type: FilterOptionType = .recent,
                      timestamp: TimeInterval = 0.0) {
         self.init()
         self.name = name
+        self.brand = brand
         self.url = url
-        self.photoUrls = photoUrls
+        self.photoUrl = photoUrl
         self.type = type
         self.timestamp = timestamp
     }

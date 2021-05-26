@@ -12,7 +12,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     func showFilterTable(duration: TimeInterval = 0.15, completion: ((Bool) -> Void)? = nil) {
         filterTable.isHidden = false
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear) {
-            self.filterTableTopCon?.constant = 0
+            //self.filterTableTopCon?.constant = 0
             self.gridCollectionTopCon?.constant = Constants.Sizes.GridCollection.gridCollectionHeight//300
             self.gridCollectionVw.reloadData()
             //print("height: \(Constants.Sizes.GridCollection.gridCollectionHeight)")
@@ -26,7 +26,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     
     func hideFilterTable(duration: TimeInterval = 0, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear) {
-            self.filterTableTopCon?.constant = -300
+           // self.filterTableTopCon?.constant = -300
             self.gridCollectionTopCon?.constant = 0
             self.gridCollectionVw.reloadData()
             self.view.layoutIfNeeded()
@@ -59,7 +59,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
         return unselectedCount
         } else {
             // collections table
-            return collections.count
+            return 1 // 1 hardcoded collection
         }
     }
     
@@ -77,9 +77,9 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             // collections table
             if let cell = tableView.dequeueReusableCell(withIdentifier: ClothingCollectionsCell.id, for: indexPath) as? ClothingCollectionsCell {
-                let collection = collections[indexPath.row]
+                let _collection = collection
                 cell.delegate = self
-                cell.setup(collection: collection)
+                cell.setup(collection: _collection)
                 return cell
             } else {
                 return UITableViewCell()
@@ -108,6 +108,17 @@ extension ProfileVC: FilterOptionCellDelegate {
         // this reorders table view such that unselected
         // options remain ordered in the table view
         // and the selected option (if any) is set in selectedFilterOptionLbl
+        
+        // filter closet by filter type (ex: tops only)
+        let filterType = cell.filterOption!.type.rawValue
+        
+        if (filterType != "Recent") {
+        filteredClosetDict = closetDict.filter { $0.value.type.rawValue == filterType}
+        } else {
+            // recent should show entire closet
+            filteredClosetDict = closetDict
+        }
+        
         self.filterTable.reloadData()
         selectedFilterOptionLbl.text = cell.filterOption!.type.rawValue
         toggleFilterTable()

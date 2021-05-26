@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 extension ExploreVC {
     
@@ -59,5 +61,191 @@ extension ExploreVC {
         searchImgVw.addLayout(parentVw: searchFieldContainer, leading: (searchFieldContainer.leadingAnchor, Padding.zero), vert: searchFieldContainer.centerYAnchor, height: Constants.Sizes.ImageSize.Profile.smallIconSize.height, width: Constants.Sizes.ImageSize.Profile.smallIconSize.width)
         searchTextField.addLayout(parentVw: searchFieldContainer, leading: (searchImgVw.trailingAnchor, 5),trailing: (searchFieldContainer.trailingAnchor, -10), top: (searchFieldContainer.topAnchor, 5), vert: searchFieldContainer.centerYAnchor)
         separatorView2.addLayout(parentVw: searchFieldContainer, leading: (searchFieldContainer.leadingAnchor, Padding.zero), trailing: (searchFieldContainer.trailingAnchor, Padding.zero), bottom: (searchFieldContainer.bottomAnchor, Padding.zero), height: Padding.separatorHeight)
+    }
+    
+    
+    // MARK: - Add Firestore listeners
+    
+    func addFirestoreExploreData(document: QueryDocumentSnapshot) {
+        
+        let itemId = document["id"] as! String
+        let brand = document["brand"] as! String
+        let name = document["name"] as! String
+        let photoUrl = document["photoUrl"] as! String
+        let type = document["type"] as! String
+        let url = document["url"] as! String
+        
+        let _type = getFilterOptionType(type)
+        
+        
+        let closetItem = ClothingItem(name: name, brand: brand, url: url, photoUrl: photoUrl, type: _type)
+        
+        // copy objects to two arrays, one filter array and one non-filtered array
+        self.exploreDict[itemId] = closetItem
+        self.exploreCollectionVw.reloadData()
+    }
+    
+    func setFirestoreExploreListener() {
+        if let user = Auth.auth().currentUser?.uid {
+            
+            db?.collection("users").document(user).collection("explore")
+                .addSnapshotListener { querySnapshot, error in
+                    guard let snapshot = querySnapshot else {
+                        print("Error fetching snapshots: \(error!)")
+                        return
+                    }
+                    
+                    // no changes
+                    snapshot.documents.forEach { doc in
+                        self.addFirestoreExploreData(document: doc)
+                        
+                    }
+                    
+                    // observe changes since ViewDidLoad is called
+                    snapshot.documentChanges.forEach { diff in
+                        
+                        if (diff.type == .modified) {
+                            self.addFirestoreExploreData(document: diff.document)
+                            
+                        }
+                        
+                        if (diff.type == .removed) {
+                            // handle UI
+                            let ref = diff.document.data()
+                            self.exploreDict[ref["id"] as! String] = nil
+                            
+                        }
+                        
+                    }
+                }
+            
+        }
+    }
+    
+    func addFirestoreShopData(document: QueryDocumentSnapshot) {
+        
+        let itemId = document["id"] as! String
+        let brand = document["brand"] as! String
+        let name = document["name"] as! String
+        let photoUrl = document["photoUrl"] as! String
+        let type = document["type"] as! String
+        let url = document["url"] as! String
+        
+        let _type = getFilterOptionType(type)
+        
+        
+        let shopItem = ClothingItem(name: name, brand: brand, url: url, photoUrl: photoUrl, type: _type)
+        
+        // copy objects to two arrays, one filter array and one non-filtered array
+        self.shopDict[itemId] = shopItem
+        self.exploreCollectionVw.reloadData()
+    }
+    
+    func setFirestoreShopListener() {
+        if let user = Auth.auth().currentUser?.uid {
+            
+            db?.collection("users").document(user).collection("shop")
+                .addSnapshotListener { querySnapshot, error in
+                    guard let snapshot = querySnapshot else {
+                        print("Error fetching snapshots: \(error!)")
+                        return
+                    }
+                    
+                    // no changes
+                    snapshot.documents.forEach { doc in
+                        self.addFirestoreShopData(document: doc)
+                        
+                    }
+                    
+                    // observe changes since ViewDidLoad is called
+                    snapshot.documentChanges.forEach { diff in
+                        
+                        if (diff.type == .modified) {
+                            self.addFirestoreShopData(document: diff.document)
+                            
+                        }
+                        
+                        if (diff.type == .removed) {
+                            // handle UI
+                            let ref = diff.document.data()
+                            self.shopDict[ref["id"] as! String] = nil
+                            
+                        }
+                        
+                    }
+                }
+            
+        }
+    }
+    
+    
+    // MARK: - Add fake data to Firebase
+    
+    func addExploreItems(_ arr: [ClothingItem]) {
+        for item in 0..<arr.count {
+            
+            addExploreRef(arr[item])
+            
+        }
+    }
+    
+    func addExploreRef(_ item: ClothingItem) {
+        if let user = Auth.auth().currentUser?.uid {
+            if let usersRef = db?.collection("users") {
+                let id = NSUUID().uuidString
+            
+                
+                
+                let exploreRef = usersRef.document(user).collection("explore")
+                let clothingRef = exploreRef.document(id)
+                
+                let data = ["id": id,
+                            "name": item.name,
+                            "brand": item.brand,
+                            "url": item.url,
+                            "photoUrl": item.photoUrl,
+                            "type": item.type.rawValue,
+                            "timestamp": item.timestamp] as [String : Any]
+                print("data \(data)")
+                
+                clothingRef.setData(data)
+                
+                
+            }
+        }
+    }
+    
+    func addShopItems(_ arr: [ClothingItem]) {
+        for item in 0..<arr.count {
+            
+            addShopRef(arr[item])
+            
+        }
+    }
+    
+    func addShopRef(_ item: ClothingItem) {
+        if let user = Auth.auth().currentUser?.uid {
+            if let usersRef = db?.collection("users") {
+                let id = NSUUID().uuidString
+            
+                
+                
+                let shopRef = usersRef.document(user).collection("shop")
+                let clothingRef = shopRef.document(id)
+                
+                let data = ["id": id,
+                            "name": item.name,
+                            "brand": item.brand,
+                            "url": item.url,
+                            "photoUrl": item.photoUrl,
+                            "type": item.type.rawValue,
+                            "timestamp": item.timestamp] as [String : Any]
+                print("data \(data)")
+                
+                clothingRef.setData(data)
+                
+                
+            }
+        }
     }
 }

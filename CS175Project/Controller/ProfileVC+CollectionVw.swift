@@ -11,8 +11,9 @@ import UIKit
 extension ProfileVC: ClothingItemCellDelegate {
     func clothingCellTapped(cell: ClothingItemCell) {
         if let indexPath = gridCollectionVw.indexPath(for: cell) {
-            let clothingItem = clothingArr[indexPath.item]
-            print(clothingItem.photoUrl.first ?? "none")
+            
+            let clothingItem = Array(filteredClosetDict)[indexPath.item].value
+            print(clothingItem.name)
             
         }
     }

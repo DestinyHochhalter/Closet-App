@@ -21,4 +21,16 @@ Our product currently supports user login and authentication, the profile page, 
 
 
 ## Upcoming Development
-In the next sprints we plan to implement the proprietary functinality of our product - an email scraping feature to identify purchased clothing. This feature makes using the app effortless as there is no manual uploading required. We will also support manual uploads, creating collections, and interactions with other accounts. Interactions with other accounts will include supporting following others, liking posts, and commenting on posts.
+In the next sprints we plan to implement the proprietary functinality of our product - an email scraping feature to identify purchased clothing. This feature makes using the app effortless as there is no manual uploading required. We will also support manual uploads, creating collections, and interactions with other accounts. Interactions with other accounts will include supporting following others, liking posts, and commenting on posts. We will also show ads based on the user's style.
+
+### Posts & User Interaction
+
+<img src="https://cdn.discordapp.com/attachments/775886798932410389/851354908385214504/Group_27.png" width="350" height="650">
+
+### Recommendations and Ads
+
+<img src="https://cdn.discordapp.com/attachments/775886798932410389/851354737882169384/Group_22.png" width="350" height="650">
+
+### Collections
+
+<img src="https://cdn.discordapp.com/attachments/775886798932410389/851354844882010112/Group_26.png" width="350" height="650">
